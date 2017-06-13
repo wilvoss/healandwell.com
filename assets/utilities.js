@@ -1,5 +1,3 @@
-/// <reference path="assets/jquery-3.2.1.js" />
-
 var body = document.body;
 
 function log(text, isolate) {
