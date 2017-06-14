@@ -3,7 +3,6 @@ var scope;
 
 angular.module("appModule", []);
 
-// controller definition
 angular
   .module("appModule")
   .controller("appController", function($timeout, $scope) {
@@ -15,16 +14,14 @@ angular
     app.TodayAtEvening = moment(app.Today.format("MM/DD/YYYY")).add(18, "hour").toDate();
     app.TodayAtNight = moment(app.Today.format("MM/DD/YYYY")).add(21, "hour").toDate();
 
-    app.IsModernTheme = false;
+    app.IsModernTheme = true;
     app.ToggleIsModernTheme = function() {
       app.IsModernTheme = !app.IsModernTheme;
-      document.getElementById("mainCss").href = app.IsModernTheme ? "assets/main-modern.css" : "assets/main.css";
+      document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
     };
     app.CurrentMainHeight = "0px";
 	
-    /*
-	Theme management
-	*/
+    /* ============= Theme management ============= */
     app.CurrentTheme;
     app.Themes = {
       coffee: new ThemeObject({ name: "coffee" }),
@@ -39,11 +36,10 @@ angular
       app.CurrentTheme = selected_theme;
       selected_theme.isSelected = true;
     };
-    app.SelectTheme(app.Themes.coffee);
 
-    /*
-	Font size management
-	*/
+    app.SelectTheme(app.Themes.blue);
+
+    /* ============= Font management ============= */
     app.CurrentFont;
     app.Fonts = {
       sans: new ThemeObject({ name: "sans-serif", isSelected: false }),
@@ -75,9 +71,7 @@ angular
     };
     app.SelectFontSize(app.FontSizes.normal);
 
-    /*
-	Navigation management
-	*/
+    /* ============= Navigation management ============= */
     app.CurrentLink;
     app.NavigationLinks = {
       home: new NavigationLinkObject({ id: "home", name: "Welcome", position: 0 }),
@@ -162,12 +156,12 @@ var listHeight = null;
 var delta = null;
 
 function UpdateLayout() {
-  document.body.className = document.body.offsetWidth - 120 - 40 < listWidth ? "narrow" : "";
+  document.body.className = document.body.offsetWidth - 120 - 40 - 1 < listWidth ? "narrow" : "";
   //
   var scope = angular.element($(document.body)).scope();
   var newHeight = document.body.offsetHeight - header.offsetTop - parseInt($(main).css("border-top-width").replace("px", "")) - header.offsetHeight - nav.offsetHeight - footer.offsetHeight - lastClear.offsetHeight + "px";
   if (scope.app.CurrentMainHeight != newHeight) {
-    log(scope.app.CurrentMainHeight + "!=" + newHeight, true);
+    log(scope.app.CurrentMainHeight + "!=" + newHeight);
     scope.app.CurrentMainHeight = newHeight;
     scope.app.UpdateCheckURL();
     scope.$apply();
@@ -177,19 +171,9 @@ function UpdateLayout() {
 function GetNavElementsWidth() {
   document.getElementsByTagName("html")[0].className = document.getElementsByTagName("html")[0].className + " loaded";
   mainBorderTop = parseInt($(main).css("border-top-width").replace("px", ""));
-  // log("",true)
-  // log("body = " + document.body.offsetHeight);
-  // log("header.offsetTop = " + header.offsetTop);
-  // log("header = " + header.offsetHeight);
-  // log("mainBorderTop = " + parseInt($(main).css("border-top-width").replace('px', '')));
-  // log("nav = " + nav.offsetHeight);
-  // log("footer = " + footer.offsetHeight);
-  // log("lastClear = " + lastClear.offsetHeight);
-  // log("total = " + (document.body.offsetHeight - header.offsetTop - parseInt($(main).css("border-top-width").replace('px', '')) - header.offsetHeight - nav.offsetHeight - footer.offsetHeight - lastClear.offsetHeight));
   var width = 0;
   for (var i = list.length - 1; i >= 0; i--) {
     width += list[i].offsetWidth + 2;
-    // console.log(list[i].offsetWidth);
   }
   listWidth = width;
   delta = document.body.offsetWidth - navList.offsetWidth;
