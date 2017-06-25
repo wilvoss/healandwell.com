@@ -6,7 +6,6 @@ orange dark			color: rgba(255,120,0,1);
 blue 				color: rgba(105,167,205,1);
 blue light			color: rgba(137,179,205,1);
 blue dark	 		color: rgba(80,128,157,1);
-blue-green          		color: rgba(118,126,128,1)
 text blue			color: rgba(105,167,205,1);
 coffee				color: rgba(105,95,85,1);
 latte 				color: rgba(255,250,237,1);
@@ -24,6 +23,12 @@ html {
   background-position: left 50px top 0px, left 20px top 20px, left 100px top 10px;
 }
 
+html.coffee {
+  background-image: url('../images/Grandma6.png');
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-size: 1280px;
+}
 
 .light {
   background-color: rgba(137, 179, 205, 1);
@@ -43,7 +48,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Abel';
   font-size: 100%;
   transition: 500ms ease-out color, 500ms ease-out background, 500ms ease-out opacity;
   transition-delay: 350ms;
@@ -104,13 +109,12 @@ foil {
   margin: 0;
   padding: 0;
   opacity: 0;
-  display: none;
   pointer-events: none;
-  /*background-color: rgba(105, 95, 85, 1);
+  background-color: rgba(105, 95, 85, 1);
   background-image: url('../images/Grandma6.png');
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: 1280px;*/
+  background-size: 1280px;
   position: absolute;
   z-index: 100;
   transition: 500ms all ease-in;
@@ -131,31 +135,29 @@ p, h1, h2, h3, h4, h5, h6, ul, li {
   transition: 250ms ease-out color, ease-out background;
   user-select: none;
   -webkit-user-select: none;
-  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: rgba(105, 167, 205, 1);
+  color: rgba(255, 120, 0, 1);
 }
 
 h1 {
   line-height: 114%;
 }
 
-section h1, section h2, section h3, section h4, section h5, section h6 {
+section h1, section h2, section h3, section h4, section h5, section h6, .orange section h1, .orange section h2, .orange section h3, .orange section h4, .orange section h5, .orange section h6 {
   margin-top: .5em;
   margin-bottom: 0em;
-}
-header h1 {
   color: rgba(105, 167, 205, 1);
-  /*font-family: 'Times New Roman', Times, serif;*/
 }
 
-header h1 span {
-  color: rgba(255, 120, 0, 1);
+.orange h1, .orange h2, .orange section h3, .orange section h4, .orange section h5, .orange section h6 {
+  color: rgba(105, 167, 205, 1);
+  color: rgba(105, 167, 205, 1);
 }
-.narrow header h1 {
-  margin-top: .6em;
+
+header h1 {
+  color: rgba(105, 167, 205, 1);
 }
 
 header h3 {
@@ -171,13 +173,11 @@ header p {
 
 p {
   margin-bottom: 1em;
-  font-size: 1.1em;
 }
 
 a {
   text-decoration: none;
-  /*color: rgba(0, 0, 0, .5);*/
-  color: rgba(56, 51, 48, 1);
+  color: rgba(0, 0, 0, .5);
 }
 
 ul {
@@ -190,8 +190,8 @@ header, nav, section, footer {
 }
 
 .narrow header, .narrow nav, .narrow section, .narrow footer {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 header {
@@ -203,21 +203,17 @@ header {
   background-repeat: no-repeat;
   transition: 250ms ease-out border-radius, 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
   background: rgba(253, 251, 245, 1);
-  background: rgba(250, 248, 243, 1);
   margin-top: 0px;
   color: rgb(255, 255, 255);
 }
 
 header h1 {
   transition: 250ms margin ease-out;
-  margin-top: 39px;
+  margin-top: 62px;
 }
 
 .narrow header h1 {
-  margin-top: 39px;
-  font-size: 2.5em;
-  clear: both;
-  /*display: none;*/
+  margin-top: 40px;
 }
 
 header h2 {
@@ -235,24 +231,23 @@ header h2 {
 }
 
 .narrow header h3 {
-  display: none;
+  font-size: 1.4em;
 }
 
 .narrow header p {
   font-size: 1.2em;
-  padding-left: 0px;
 }
 
 header img {
   width: 140px;
   float: left;
-  margin: 0px 0px 20px 3px;
+  margin: 0px 12px 20px -3px;
   transition: 250ms all ease-out;
 }
 
 .narrow header img {
-  width: 70px;
-  margin: 0px 0px 0px -6px;
+  width: 100px;
+  margin: 0px 10px 20px 4px;
 }
 
 clear {
@@ -262,7 +257,7 @@ clear {
 
 nav {
   background: rgba(0, 0, 0, .3);
-  padding: 0px 20px;
+  padding: 0px 20px 0px 20px;
   text-align: left;
   overflow: hidden;
   clear: both;
@@ -273,9 +268,6 @@ nav {
 
 .narrow nav {
   padding: 0px;
-  width: 100px;
-  background: rgba(253, 251, 245, 1);
-  background: rgba(250, 248, 243, 1);
 }
 
 nav ul {
@@ -291,7 +283,7 @@ nav ul h4 {
   position: absolute;
   display: block;
   padding-top: 11px;
-  padding-left: 20px;
+  padding-left: 54px;
   color: rgba(105, 167, 205, 1);
 }
 
@@ -306,44 +298,36 @@ nav ul h4 {
 .narrow nav ul {
   background: rgba(255, 255, 255, 0);
   position: absolute;
-  text-align: right;
   border: 1px solid rgba(0, 0, 0, 0);
-  margin-left: 0px;
-  right: 110px;
-  /*margin-right: -100px;*/
-  /*border: 1px solid red;*/
+  margin-left: 20px;
+  width: 200px;
   margin-top: -14px;
   border-radius: 3px;
   font-size: 1.3em;
   padding: 20px 0px 20px 0px;
-  top: 0px;
 }
 
-.narrow nav ul h4:after {
-  font-family: 'Khula', sans-serif;
+.narrow nav ul:before {
   content: "\2630";
   color: rgba(105, 167, 205, 1);
+  margin-left: 20px;
   margin-top: 11px;
-  margin-left: 6px;
-  /*display: inline-block;*/
+  position: absolute;
 }
 
-.blue .narrow nav ul h4:after {
+.blue .narrow nav ul:before {
   color: rgba(255, 120, 0, 1);
 }
 
-.narrow nav ul:hover h4:after {
+.narrow nav ul:hover:before {
   display: none;
 }
 
 .narrow nav ul:hover {
-  /*box-shadow: 0px 0px 5px rgba(0, 0, 0, .1);*/
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .1);
   background: rgba(255, 255, 255, 1);
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-  padding: 10px 0px 10px 0px;
+  border: 1px solid rgba(255, 168, 0, 1);
+  border-color: rgba(105, 167, 205, 1);
 }
 
 .narrow nav li {
@@ -351,7 +335,6 @@ nav ul h4 {
   pointer-events: none;
   position: absolute;
   transition: none;
-  text-align: center;
 }
 
 .narrow nav ul:hover li {
@@ -362,9 +345,8 @@ nav ul h4 {
 }
 
 .narrow nav li.on {
-  background: rgba(255, 120, 0, 0);
+  background: rgba(105, 167, 205, 1);
   border-radius: 0px;
-  cursor: default;
   /*	opacity: 1;
 		pointer-events: all;
 		display: block;
@@ -393,7 +375,7 @@ nav li.on, nav li.on:active, nav li.on:focus {
 }
 
 .narrow nav li {
-  /*background: rgba(255, 255, 255, 1);*/
+  background: rgba(255, 255, 255, 1);
   border-radius: none;
   box-shadow: none;
   margin-right: 0px;
@@ -405,24 +387,25 @@ nav li:hover {
 }
 
 .narrow nav li:hover {
-  background: rgba(250, 248, 243, 1);
+  background: rgba(105, 167, 205, .1);
   border-top: 0px solid rgba(253, 251, 245, 1);
-  background: rgba(250, 248, 243, 1);
   border-radius: 0px;
 }
 
 .narrow nav li.on:hover {
-  background: rgba(250, 248, 243, 1);
+  background: rgba(105, 167, 205, 1);
   border-top: 0px solid rgba(253, 251, 245, 1);
   border-radius: 0px;
 }
 
+button {
+  font-family: 'Abel';
+}
 
 nav li button {
-  font-family: 'Abel', sans-serif;
   display: block;
   margin: 0px;
-  padding: 9px 20px 9px;
+  padding: 9px 24px 9px;
   color: rgba(255, 250, 237, .8);
   /*		text-shadow: 0px -1px 0px rgba(0,0,0,.2);*/
   box-shadow: inset 0px -20px 5px -20px rgba(0, 0, 0, 0);
@@ -431,48 +414,29 @@ nav li button {
   border: none;
   background: none;
   cursor: pointer;
-  font-size: .9em;
+  font-size: .8em;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-nav li:hover button {
-  box-shadow: inset 0px -20px 5px -20px rgba(0, 0, 0, .2);
-}
-
-.narrow nav li:first-of-type {
-  margin-top: 25%;
-}
-
 .narrow nav li button {
-  padding: 8px 0px 8px;
-  width: 100%;
+  padding: 8px 24px 2px;
   line-height: auto;
   box-shadow: none;
-  font-size: .85em;
-  text-align: center;
+  font-size: .75em;
 }
 
 nav li.on button {
-  text-shadow: 0px 1px 0px white;
   box-shadow: none;
-}
-
-
-.narrow nav li.on button {
-  color: rgba(255, 120, 0, 1);
-  cursor: default;
-}
-
-nav li:hover button, nav li.on button, nav li button:hover, .narrow nav li button {
-  text-shadow: none;
-  color: white;
+  color: rgba(255, 255, 255, 1);
 }
 
 .narrow nav li button {
-  text-shadow: none;
-  /*color: rgba(0,0, 0, .5);*/
-  color: rgba(105, 95, 85, 1);
+  padding-left: 20px;
+}
+
+.narrow nav li.on button {
+  color: white;
 }
 
 main {
@@ -481,8 +445,7 @@ main {
   margin: 0px 40px 0px 40px;
   border-top: 0px solid rgba(253, 251, 245, 0);
   background: rgba(253, 251, 245, .9);
-  background: rgba(250, 248, 243, 1);
-  overflow-y: auto;
+  overflow-y: scroll;
   border-radius: 0px 0px 0px 0px;
   transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
   touch-action: auto;
@@ -490,10 +453,11 @@ main {
 }
 
 .narrow main {
-  margin: 0px 0px 0px;
+  background: rgba(253, 251, 245, 1);
+  margin: 0px 20px 0px;
   padding: 0px 20px;
   border-radius: 0px;
-  border-top-width: 30px;
+  border-top-width: 60px;
 }
 
 .mainSection {
@@ -515,15 +479,8 @@ section {
   transition-delay: 250ms;
 }
 
-a {
-  /*border-bottom: 1px dashed rgba(255, 168, 0, 1);*/
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 168, 0, .5);
-  text-decoration-style: solid;
-  -webkit-text-decoration: underline;
-  -webkit-text-decoration-color: rgba(255, 168, 0, .5);
-  -webkit-text-decoration-style: solid;
-  /*color: rgba(255, 120, 0, 1);*/
+section a {
+  border-bottom: 1px dashed rgba(255, 168, 0, 1);
   transition: 250ms color ease-out, 250ms border ease-out;
 }
 
@@ -533,38 +490,15 @@ section ul {
 
 section ul li a {
   padding-top: 10px;
-  /*line-height: 140%;*/
-  display: block;
+  line-height: 100%;
+  display: inline-block;
   background: rgba(0, 0, 0, 0);
   margin-left: 0px;
 }
 
-a:hover {
-  -webkit-text-decoration-color: rgba(255, 168, 0, 1);
-  text-decoration-color: rgba(255, 168, 0, 1);
+section ul li a:hover {
+  border-bottom-style: solid;
   color: black;
-}
-section iframe {
-  float: right;
-  margin-left: 40px;
-  width: 50%;
-  border: 0;
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
-}
-.narrow section iframe {
-  display: block;
-  float: none;
-  width: 100%;
-  margin-left: 0px;
-}
-.narrow section iframe {
-  display: none;
-}
-.small {
-  display: none;
-}
-.narrow section iframe.small {
-  display: block;
 }
 
 .narrow section h2 {
@@ -581,16 +515,8 @@ section iframe {
 }
 
 section aside {
-  width: 23%;
   float: right;
-  clear: none;
-  margin-right: 40px;
-}
-section aside.wide, .narrow section aside {
-  width: 43%;
-}
-.narrow section aside {
-  width: 30%;
+  clear: both;
 }
 
 section aside h4 {
@@ -611,26 +537,25 @@ section aside p {
 }
 
 section aside img {
-  width: 100%;
+  width: 10em;
   margin: 0px 0px 20px 40px;
   transition: 250ms all ease-out;
   border-radius: 3px;
 }
 
-.narrow section aside.hideWhenNarrow {
-  display: none;
+section aside img.wide {
+  width: 20em;
+}
+
+.narrow section aside img {
+  width: 120px;
+  margin: 0px 0px 20px 20px;
 }
 
 .narrow section aside img.wide {
   width: 14em;
 }
 
-/*section article{
-    width: 50%;
-}
-.narrow section article{
-    width: 100%;
-}*/
 footer {
   padding: 14px 20px 14px 20px;
   background: rgba(255, 250, 237, .2);

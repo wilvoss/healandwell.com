@@ -14,13 +14,18 @@ angular
     app.TodayAtEvening = moment(app.Today.format("MM/DD/YYYY")).add(18, "hour").toDate();
     app.TodayAtNight = moment(app.Today.format("MM/DD/YYYY")).add(21, "hour").toDate();
 
-    app.IsModernTheme = true;
+    app.HealingAndWellnessScrolledOutOfView = false;
+    app.IsNarrow = false;
+    app.MenuOn = false;
+    app.IsModernTheme = false;
+
+    document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
     app.ToggleIsModernTheme = function() {
       app.IsModernTheme = !app.IsModernTheme;
       document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
     };
     app.CurrentMainHeight = "0px";
-	
+    app.ContactGoogleMapCurrentHeight = "0px";
     /* ============= Theme management ============= */
     app.CurrentTheme;
     app.Themes = {
@@ -148,28 +153,40 @@ var nav = document.getElementsByTagName("nav")[0];
 var main = document.getElementsByTagName("main")[0];
 var mainBorderTop = parseInt($(main).css("border-top-width").replace("px", ""));
 var footer = document.getElementsByTagName("footer")[0];
-var lastClear = document.getElementById("lastClear");
+// var lastClear = document.getElementById("lastClear");
 var navList = document.getElementById("navlist");
 var list = nav.getElementsByTagName("li");
 var listWidth = null;
 var listHeight = null;
 var delta = null;
+var isNarrow = false;
 
 function UpdateLayout() {
-  document.body.className = document.body.offsetWidth - 120 - 40 - 1 < listWidth ? "narrow" : "";
-  //
+  isNarrow = document.body.offsetWidth - 120 - 2 < listWidth;
+  //document.body.className = isNarrow ? "narrow" : "";
+
   var scope = angular.element($(document.body)).scope();
-  var newHeight = document.body.offsetHeight - header.offsetTop - parseInt($(main).css("border-top-width").replace("px", "")) - header.offsetHeight - nav.offsetHeight - footer.offsetHeight - lastClear.offsetHeight + "px";
+  scope.app.IsNarrow = isNarrow;
+  var newHeight = document.body.offsetHeight - header.offsetTop - parseInt($(main).css("border-top-width").replace("px", "")) - header.offsetHeight - nav.offsetHeight - footer.offsetHeight - (isNarrow ? 0 : 40);
   if (scope.app.CurrentMainHeight != newHeight) {
     log(scope.app.CurrentMainHeight + "!=" + newHeight);
-    scope.app.CurrentMainHeight = newHeight;
+    if (isNarrow) {
+      scope.app.CurrentMainHeight = "auto";
+    } else {
+      scope.app.CurrentMainHeight = newHeight + "px";
+      scope.app.ContactGoogleMapCurrentHeight = parseInt(newHeight) - 80 + "px";
+    }
     scope.app.UpdateCheckURL();
-    scope.$apply();
   }
+
+  if (isNarrow) {
+    var scrollTop = document.getElementsByTagName("wrap")[0].scrollTop;
+    scope.app.HealingAndWellnessScrolledOutOfView = scrollTop > 70;
+  }
+  scope.$apply();
 }
 
 function GetNavElementsWidth() {
-  document.getElementsByTagName("html")[0].className = document.getElementsByTagName("html")[0].className + " loaded";
   mainBorderTop = parseInt($(main).css("border-top-width").replace("px", ""));
   var width = 0;
   for (var i = list.length - 1; i >= 0; i--) {
@@ -177,7 +194,10 @@ function GetNavElementsWidth() {
   }
   listWidth = width;
   delta = document.body.offsetWidth - navList.offsetWidth;
-  updateTime = window.setInterval(UpdateLayout, 100);
+  updateTime = window.setInterval(UpdateLayout, 16);
+  if (document.getElementsByTagName("html")[0].className.indexOf("loaded") == -1) {
+    document.getElementsByTagName("html")[0].className = document.getElementsByTagName("html")[0].className + " loaded";
+  }
 }
 
 $(window).on("hashchange", function() {
@@ -193,6 +213,5 @@ window.onpopstate = function(event) {
 };
 
 document.body.onload = window.setTimeout(function() {
-  app.ToggleIsModernTheme();
   GetNavElementsWidth();
 }, 200);
