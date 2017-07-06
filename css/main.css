@@ -77,7 +77,7 @@ wrap {
   opacity: 0;
   max-width: 1088px;
   margin: 0px auto 0px auto;
-  padding: 40px 0px 0px 0px;
+  padding: 20px 0px 0px 0px;
   pointer-events: none;
   display: block;
   transition: 250ms padding ease-out, 250ms opacity ease-out;
@@ -105,16 +105,22 @@ p, h1, h2, h3, h4, h5, h6, ul, li {
   transition: 250ms ease-out color, ease-out background;
   user-select: none;
   -webkit-user-select: none;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: rgba(105, 167, 205, 1);
-  letter-spacing: -1px;
+  /*letter-spacing: -1px;*/
 }
 
 h3, h4, h5, h6 {
-  color: rgba(56, 51, 48, 1);
+  /*color: rgba(56, 51, 48, 1);*/
+  color: rgba(0,0,0,1);
+}
+
+h4, h5, h6{
+  font-weight: 600;
 }
 
 .narrow h1, .narrow h2 {
@@ -167,7 +173,9 @@ p {
 
 li {
   /*font-size: 1.1em;*/
+  list-style: none;
 }
+
 
 a {
   text-decoration: none;
@@ -177,6 +185,16 @@ a {
 
 ul {
   list-style: none;
+  list-style-type: none;
+}
+
+ul.bulleted{
+}
+
+ul.bulleted li:before{
+  content:"- ";
+  opacity: .5;
+
 }
 
 header, nav, section, footer {
@@ -304,7 +322,7 @@ nav ul {
 
 .narrowNavMenu {
   opacity: 0;
-  font-size: 1.2em;
+  font-size: 1.5em;
   pointer-events: none;
   cursor: pointer;
   position: fixed;
@@ -420,9 +438,9 @@ ul.narrowNavLinks {
 }
 
 nav li, ul.narrowNavLinks li {
-  display: block;
+  display: inline-block;
   font-size: 1em;
-  float: left;
+  /*float: left;*/
   margin-right: 2px;
   background: rgba(0, 0, 0, 0);
   border-top: 3px solid rgba(255, 120, 0, 0);
@@ -431,7 +449,10 @@ nav li, ul.narrowNavLinks li {
   margin-top: 0px;
   cursor: pointer;
 }
-
+l.narrowNavLinks li {
+  float: left;
+  display: block;
+}
 nav li.on, nav li.on:active, nav li.on:focus {
   border-top-color: rgba(255, 120, 0, .9);
   background: rgba(253, 251, 245, 1);
@@ -527,7 +548,7 @@ main {
   display: block;
   padding: 0px;
   margin: 0px 40px 0px 40px;
-  border-top: 0px solid rgba(253, 251, 245, 0);
+  /*border-top: 0px solid rgba(253, 251, 245, 0);*/
   border-top: 0px solid rgba(250, 248, 243, 1);
   background: rgba(253, 251, 245, 1);
   background: rgba(250, 248, 243, 1);
@@ -540,7 +561,7 @@ main {
 
 .narrow main {
   margin: 0px 0px 0px;
-  padding: 0px 20px;
+  padding: 0px 20px 40px;
   border-radius: 0px;
   border-top-width: 30px;
 }
@@ -556,6 +577,7 @@ section {
   padding-bottom: 20px;
   background: rgba(253, 251, 245, 0);
   transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
+  -webkit-overflow-scrolling: touch;
 }
 
 .show {
@@ -566,18 +588,46 @@ section {
 
 a {
   /*border-bottom: 1px dashed rgba(255, 168, 0, 1);*/
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 168, 0, 1);
-  text-decoration-style: solid;
-  -webkit-text-decoration: underline;
-  -webkit-text-decoration-color: rgba(255, 168, 0, 1);
-  -webkit-text-decoration-style: solid;
-  /*color: rgba(255, 120, 0, 1);*/
+  text-decoration: none;
+  color: rgba(255, 120, 0, 1);
   transition: 250ms color ease-out, 250ms border ease-out;
 }
 
 section ul {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+}
+section ul.collapsable h3{
+  cursor: pointer;
+}
+
+section ul.collapsable h3:before{
+  color: rgba(255,120,0,1);
+  content: "⊶ ";
+  font-size: 20px;
+  margin-right: .18em;
+  margin-left: -.1em;
+  transform: rotate(-90deg) translateY(-1px) translateX(-1px);
+  /*transition: 500ms all ease-out;*/
+display: inline-block;
+}
+
+section ul.collapsable.revealed h3:before{
+color: rgba(105,95,85,1);
+  content: "⊷ ";
+  /*transform: rotate(90deg);*/
+}
+
+section ul.collapsable li{
+  height: 0px;
+  overflow: hidden;
+  text-indent: 1em;
+  opacity: 0;
+  transition: 250ms all ease-in-out;
+}
+
+section ul.collapsable.revealed li{
+  height: 2em;
+  opacity: 1;
 }
 
 section ul li a {
@@ -643,21 +693,17 @@ section aside {
 
 section aside.wide, .narrow section aside {
   width: 43%;
+  max-width: 400px;
 }
 
 .narrow section aside {
   width: 30%;
+  max-width: 200px;
 }
 
-section aside h4 {
+section aside h4, section aside p, section aside ul {
   margin: 0px;
   font-size: 1em;
-  margin-left: 40px;
-}
-
-section aside p {
-  margin: 0px;
-  font-size: .7em;
   margin-left: 40px;
 }
 
@@ -677,6 +723,18 @@ section aside img {
   display: none;
 }
 
+section.column2 article{
+  display: inline-block;
+  width: 46%;
+  margin-right: 2%;
+  vertical-align: top;
+}
+
+.narrow section aside.column2{
+  width: auto;
+  float: none;
+}
+
 .narrow section aside img.wide {
   width: 14em;
 }
@@ -688,17 +746,33 @@ section aside img {
     width: 100%;
 }*/
 
+.loaded .footerWrap{
+  padding: 0px;
+  height: auto;
+}
+
 footer {
   padding: 14px 20px 10px 20px;
   background: rgba(105, 95, 85, 1);
   border-bottom: 3px solid rgba(255, 120, 0, 1);
   transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
-  border-radius: 3px 3px 8px 8px;
+  border-radius: 0px 0px 8px 8px;
   font-size: .8em;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
+
+.loaded.narrow .footerWrap{
+  padding: 0px;
+  height: auto;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+}
 .narrow footer {
   border-radius: 0px;
+  display: block;
 }
 
 .coffee footer {
@@ -716,7 +790,8 @@ footer li {
 }
 
 footer a {
-  color: rgba(255, 255, 255, .6);
+cursor: pointer;
+  color: rgba(255, 255, 255, 1);
   display: block;
 }
 
