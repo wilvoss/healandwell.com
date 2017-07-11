@@ -17,7 +17,7 @@
 
 	<meta content="Healing and Wellness Counseling Appointment Request: Melinda Cocolas, LMHP | Individual Therapy | Dialectical Behavioral Counseling | DBT | Omaha Nebraska"
 	 dir="LTR" lang="en" name="title">
-	<meta content="Healing, Wellness, Healing and Wellness Counseling, Melinda Cocolas, Cocolas, DBT, Dialectical Behavioral Therapy, Cognitive Behavioral Therapy, CBT, Omaha, Omaha NE, Omaha Nebraska, Nebraska, Omaha Counselor, 68144, 68114, 68132, Therapist, Therapy, Counseling, Counselor, Psychotherapy, Psychotherapist, Grief Counseling, Mental Health Care, Depression, Anxiety, Co-occuring Disorders, Relationship Counseling, Marriage Therapy, Therapists, Counselors, Mental Health Counselor"
+	<meta content="Healing, Wellness, Healing and Wellness Counseling, Melinda Cocolas, Cocolas, DBT, Dialectical Behavioral Therapy, Cognitive Behavioral Therapy, CBT, Omaha, Omaha NE, Omaha Nebraska, Nebraska, Omaha Counselor, 68144, 68114, 68132, Therapist, Therapy, Counseling, Counselor, Psychotherapy, Psychotherapist, Grief Counseling, Mental Health Care, Depression, Anxiety, Co-occurring Disorders, Relationship Counseling, Marriage Therapy, Therapists, Counselors, Mental Health Counselor"
 	 dir="LTR" lang="en" name="keywords">
 	<meta content="Melinda Cocolas provides counseling and therapy services for adult individuals and couples in and around the greater Omaha area."
 	 dir="LTR" lang="en" name="description">
@@ -37,9 +37,9 @@
 </head>
 
 <body>
-	<narrowNav>
+	<narrowNav ng-class="{'titleOn' : app.HealingAndWellnessScrolledOutOfView}">
 		<hamburgerMenu class="narrowNavMenu" ng-click="app.MenuOn=!app.MenuOn">
-			<hwtitle ng-class="{'titleOn' : app.HealingAndWellnessScrolledOutOfView}">Healing <span>&amp;</span> Wellness</hwtitle>
+			<hwtitle>Healing <span>&amp;</span> Wellness</hwtitle>
 		</hamburgerMenu>
 		<ul class="narrowNavLinks">
 			<li ng-click="app.PushHistory(link.id); app.MenuOn=false" ng-if="!link.isDisabled" ng-repeat="link in app.NavigationLinks | orderObjectBy:'position'"
@@ -49,7 +49,7 @@
 	<!--<foil onclick="this.className='unveil'"></foil>-->
 	<wrap>
 		<header>
-			<img src="images/hwlogo-no-title.png">
+			<img ng-click="app.PushHistory('home'); app.MenuOn=false" src="images/hwlogo-no-title.png">
 			<hgroup>
 				<h1>Healing <span>&amp;</span> Wellness Counseling</h1>
 				<h3>Melinda R. Cocolas, MS, LMHP </h3>
@@ -64,190 +64,33 @@
 			</ul>
 			<clear></clear>
 		</nav>
-		<main ng-style="{'height' : app.CurrentMainHeight}" ng-style="{'height' : app.CurrentMainHeight}">
-			<home class="mainSection" ng-class="{'show' : app.NavigationLinks.home.isSelected}">
-				<section>
-					<h2>Welcome</h2>
-					<aside>
-						<img src="images/melinda_cocolas.png">
-					</aside>
-					<article>
-
-						<p>
-							If you’re here, likely you (or someone you know) is having a hard time. You may be struggling with painful past experiences,
-							present difficulties, or a mental health disorder. If so, counseling is a great opportunity to get assistance.
-						</p>
-						<p>
-							I’ve always been a listener and an encourager. While these are helpful, the work you will do in and outside of the counseling
-							office (developing insight and skills to be healthy and fulfilled) is equally important. I strive to work with you
-							to achieve your emotional and/or relational goals.
-						</p>
-						<p>
-							If your relationships are being affected and your loved one wants to join you, I can help you identify each person’s needs
-							and feelings, hear and be heard by one another, and solve problems together.
-							<p>
-								I work with adult individuals and couples. If you’re ready to make positive changes or move toward a life you find more meaningful,
-								please call me to set an appointment.
-							</p>
-							<p>
-								I look forward to walking alongside you in this process of healing and wellness!
-							</p>
-					</article>
-				</section>
-			</home>
-			<services class="mainSection" ng-class="{'show':app.NavigationLinks.services.isSelected}">
-				<section>
-					<h2>Services</h2>
-					<aside class="wide hideWhenNarrow">
-						<img src="images/window-drops.png">
-					</aside>
-					<article>
-
-						<ul>
-							<li>
-								<h3>Treatments</h3>
-							</li>
-							<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2963469/" target="_blank">Dialectic Behavioral Therapy (DBT)</a></li>
-							<li><a href="https://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0072481/" target="_blank">Cognitive Behavioral Therapy (CBT)</a></li>
-							<li><a href="" target="_blank">Individual and Group Therapy</a></li>
-							<li><a href="" target="_blank">Mood, Anxiety, Psychotic, &amp; Co-occuring Disorders</a></li>
-							<li><a href="" target="_blank">Grief, Trauma, &amp; Relationship Issues</a></li>
-						</ul>
-						<ul>
-							<li>
-								<h3>Principles</h3>
-							</li>
-							<li><a href="" target="_blank">Client Centered</a></li>
-							<li><a href="" target="_blank">Solution Focused</a></li>
-						</ul>
-					</article>
-				</section>
-			</services>
-			<about class="mainSection" ng-class="{'show' : app.NavigationLinks.about.isSelected}">
-				<section>
-					<h2>About</h2>
-					<aside>
-						<img src="images/melinda_cocolas.png">
-					</aside>
-					<article>
-						<p>I earned a Bachelor of Arts Degree from the University of Nebraska at Lincoln in 2000 and a Master of Science Degree
-							in Community Counseling from the University of Nebraska at Omaha in 2010. I have been licensed by the State of Nebraska
-							as a Licensed Mental Health Professional since 2010, and I am a member of the American Counseling Association and
-							the Association of Private Practice Therapists. </p>
-						<p>I am experienced at working with adult individuals, who need help with anxiety, depression, grief, and trauma. I also
-							work with clients with severe, persistent mental illness and co-occurring disorders. Additionally, I assist couples
-							dealing with conflict in their relationship. I use Cognitive Behavioral Therapy - in particular Dialectical Behavioral
-							Therapy combined with a client centered and solution focused approach. My goal is to help clients develop the insight
-							and skills they need to be healthy and fulfilled. </p>
-						<p>Recognizing the importance of the client-therapist relationship in the healing process, I foster it through a warm,
-							genuine, and non-judgmental approach. I also make my office a safe place for clients to grow while processing your
-							difficulties.
-						</p>
-					</article>
-				</section>
-			</about>
-			<connect class="mainSection" ng-class="{'show' : app.NavigationLinks.connect.isSelected}">
-				<section>
-					<article>
-						<iframe ng-style="{'height' : (app.ContactGoogleMapCurrentHeight)}" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.4642036378805!2d-96.10100968455696!3d41.2334452792785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8793f31b3912e803%3A0x3d15421251907c26!2sHealing+and+Wellness+Counseling%2C+LLC!5e0!3m2!1sen!2sus!4v1497805559524"
-						 frameborder="0" allowfullscreen></iframe>
-
-						<h2 style="margin-bottom: .5em;">Appointments</h2>
-						<h3>New clients</h3>
-						<p>
-							Call <a href="tel:531-222-6371">(531) 222-6371</a>, and please have your insurance card ready.</p>
-
-						<h3>Current clients</h3>
-						<p>
-							Use my <a href="https://www.therapyportal.com/p/healing68144/" target="_blank">client portal</a>.
-						</p>
-						<h2>Address</h2>
-						<ul>
-							<li>Westwood Professional Building III </li>
-							<li>11902 Elm ST STE 3A </li>
-							<li>Omaha NE 68144-4362 </li>
-						</ul>
-						<img src="images/building.png" style="width: 40%" />
-						<iframe class="small" style="height: 300px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.4642036378805!2d-96.10100968455696!3d41.2334452792785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8793f31b3912e803%3A0x3d15421251907c26!2sHealing+and+Wellness+Counseling%2C+LLC!5e0!3m2!1sen!2sus!4v1497805559524"
-						 frameborder="0" allowfullscreen></iframe>
-					</article>
-				</section>
-			</connect>
-			<intake class="mainSection" ng-class="{'show' : app.NavigationLinks.intake.isSelected}">
-				<section class="column2">
-					<h2>New clients</h2>
-					<article>
-						<p>
-							If you are a new client, you can <strong>view</strong> available openings on my client portal, but you will need to request one of these openings
-							by phone, 531-222-6371 (a local, Omaha number).
-
-						</p>
-
-						<p>When you call to set your appointment, I will need your insurance information: </p>
-						<ul class="bulleted">
-							<li>Member ID # </li>
-							<li>Phone # for providers to call </li>
-							<li>Plan name, if on your card </li>
-							<li>Payer ID (a 5-digit number), if on your card </li>
-						</ul>
-
-						<p>
-							If you would like me to coordinate care with another provider (for example, your psychiatrist, primary care physician, etc.),
-							complete <a href="documents/Healing and Wellness Counseling ROI.pdf">this form</a> to authorize release of psychotherapy information:
-						</p>
-												<!--<img src="images/upside-down.jpg" />-->
-
-					</article>
-					<article>
-						<p> New appointments last from 1-1/2 to 2 hours; please fill out these forms prior to your session: </p>
-						<ul>
-							<li><a style="padding-top: 0px;" href="documents/Healing and Wellness Informed Consent, Professional Disclosure, and Policies(2).pdf">Informed Consent, Professional Disclosure, and Policies</a></li>
-							<li><a href="documents/Healing and Wellness Consent to Treatment.pdf">Consent to Treatment</a></li>
-							<li><a href="documents/Healing and Wellness New Client Information Form.pdf">New Client Information Form</a></li>
-						</ul>
-
-						<p>As a client, you are entitled to a copy of Healing &amp; Wellness Counseling's <a href="documents/Notice of Privacy Practices (800505_2).pdf" target="_blank">Privacy Practices</a>.</p>
-
-					</article>
-				</section>
-			</intake>
-			<resources class="mainSection" ng-class="{'show' : app.NavigationLinks.resources.isSelected}">
-				<section>
-					<!-- updated: October 7th, 2016 -->
-
-					<h2>Resources</h2>
-					<aside class="wide hideWhenNarrow">
-						<img src="images/Grandma2.jpg" />
-					</aside>
-					<article>
-						<ul class="collapsable"  ng-class="{'revealed' : groupItem.isRevealed}" ng-repeat="groupItem in app.ResourceGroups | orderBy : 'title'" ng-show="groupItem.isEnabled">
-							<h3 ng-bind-html="groupItem.title" ng-click="groupItem.isRevealed=!groupItem.isRevealed"></h3>
-							<li ng-repeat="item in groupItem.items | orderBy : 'title'">
-								<a href="{{item.url}}" target="_blank" ng-bind-html="item.title"></a>
-							</li>
-						</ul>
-					</article>
-				</section>
-			</resources>
-
+		<main ng-style="{'height' : app.CurrentMainHeight}">
+			<div ng-repeat="link in app.NavigationLinks" class="mainSection" ng-class="{'show' : link.isSelected}">
+				<ng-include src="link.page">
+				</ng-include>
+			</div>			
 		</main>
 		<clear></clear>
 	</wrap>
 	<wrap class="footerWrap">
 		<footer>
 			<ul>
-				<li>&copy;{{app.Today | date : 'y'}} {{ app.IsNarrow ? "" : "Healing and Wellness Counseling, LLC"}}</li>
-				<li><a ng-click="app.PushHistory('connect'); app.MenuOn=false" alt="" title="">Location</a></li>
+				<li>&copy;{{app.Today | date : 'y'}} {{ app.IsNarrow ? "HWC" : "Healing and Wellness Counseling, LLC"}}</li>
+				<li ng-if="!app.IsNarrow">|</li>
+				<li ng-if="!app.IsNarrow"><a ng-click="app.PushHistory('connect'); app.MenuOn=false" alt="" title="">Location</a></li>
 				<li><a ng-click="app.PushHistory('connect'); app.MenuOn=false" alt="" title="">Appointments</a></li>
 				<li><a href="documents/Notice of Privacy Practices (800505_2).pdf" target="_blank">Privacy Practices</a></li>
 			</ul>
 		</footer>
 	</wrap>
-	<clear id="lastClear">&nbsp;</clear>
+	<!--<clear id="lastClear">&nbsp;</clear>-->
+	<script src="pages/resources_data.js"></script>
 	<script src="controller/app_controller.js"></script>
 	<script type="text/javascript">
 		angular.module("app", ["appModule", "ngSanitize"]);
 	</script>
+
+
 </body>
 
 </html>
