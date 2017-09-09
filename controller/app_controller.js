@@ -28,7 +28,7 @@ angular
     app.MenuOn = false;
     app.IsModernTheme = false;
 
-    document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
+//    document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
     app.ToggleIsModernTheme = function() {
       app.IsModernTheme = !app.IsModernTheme;
       document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
@@ -106,7 +106,7 @@ angular
       }
       if (selected_link== app.NavigationLinks.connect){
         log("select link called");
-            calculateCenter();
+            //calculateCenter();
       }
       app.CurrentLink = selected_link;
       app.CurrentLink.isSelected = true;
@@ -201,8 +201,8 @@ function UpdateLayout() {
         app.PreviousNarrowMapHeight=app.ContactGoogleMapCurrentHeight;
         if (app.NavigationLinks.connect.isSelected)
         {
-        log("calculateCenter()");
-          calculateCenter();
+        //log("calculateCenter()");
+          //calculateCenter();
         }
       }
     } else  {

@@ -101,6 +101,8 @@ wrap {
 .loaded.narrow wrap {
   overflow: scroll;
   height: 100%;
+  margin: 0px;
+  max-width: initial;
 }
 
 p,
@@ -161,12 +163,17 @@ section h6 {
   margin-bottom: 0em;
 }
 
-#map {
+map {
+  display: block;;
   margin: 0px -40px;
   border: 1px solid rgba(0,0,0,.1);
+  background: url(../images/map-1.gif) no-repeat center center;
+  background-size: auto 100%;
 }
-.narrow #map {
+.narrow map {
   margin: 0px -20px;
+  background-size: 235%;
+background-position: -150px -4px;
 }
 
 section iframe + h2{
