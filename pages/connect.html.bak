@@ -1,0 +1,35 @@
+<!-- ========================================== -->
+<!-- ================= CONNECT ================ -->
+<!-- ========================================== -->
+<section>
+	<h2>Appointments</h2>
+	<aside class="wide hideWhenNarrow">
+		<img src="images/building.png">
+		<figcaption>Melinda Cocolas</figcaption>
+	</aside>
+	<article>
+		<p>
+			<strong>New clients</strong>, please call <a href="tel:531-222-6371">(531) 222-6371</a>; you'll need your insurance card.
+			<strong>Current clients</strong>, please use my <a href="https://www.therapyportal.com/p/healing68144/" target="_blank">client portal</a>			to schedule your next appointment.
+		</p>
+		<h2>Address</h2>
+		<ul>
+			<li>Westwood Professional Building III </li>
+			<li>11902 Elm ST STE 3A </li>
+			<li>Omaha NE 68144-4362 </li>
+			<li><a href="https://maps.google.com/maps?ll=41.232751,-96.098971&z=15&t=m&hl=en-US&gl=US&mapclient=embed&daddr=Healing%20and%20Wellness%20Counseling%2C%20LLC%2011902%20Elm%20St%20STE%203A%20Omaha%2C%20NE%2068144@41.2334453,-96.098821"
+				 target="_blank">Get directions</a></li>
+		</ul>
+	</article>
+</section>
+<section style="padding-top: 0px;">
+	<article style="clear:both">
+		<a href="https://maps.google.com/maps?ll=41.232751,-96.098971&z=15&t=m&hl=en-US&gl=US&mapclient=embed&daddr=Healing%20and%20Wellness%20Counseling%2C%20LLC%2011902%20Elm%20St%20STE%203A%20Omaha%2C%20NE%2068144@41.2334453,-96.098821"
+		 target="_blank">
+		<map ng-style="{'height' : app.ContactGoogleMapCurrentHeight}" style="min-height: 200px;" id="map">
+			<img src="images/rosette.png" style="width: 70px; margin: 20px;"/>
+		</map>
+		</a>
+		<p style="font-size: .8em; margin-top: 10px;">Located in the Westwood Professional Center at 119th and West Center Road, in Omaha, Nebraska.</p>
+	</article>
+</section>
