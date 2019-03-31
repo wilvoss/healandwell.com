@@ -11,14 +11,14 @@ this.title = spec.title;
 this.url = spec.url;
 this.isEnabled = spec.isEnabled == undefined ? true : spec.isEnabled;
 };
-    
+
 
 var BaseResourceGroups = [
   new ResourceGroupObject({
     title: "Suicide",
     items: [
-    	new ResourceItem({ url: "http://www.samhsa.gov/prevention/suicide.aspx", title: "SAMHSA Suicide Prevention" }), 
-    	new ResourceItem({ url: "http://www.save.org/", title: "Suicide Awareness Voices of Education" }), 
+    	new ResourceItem({ url: "http://www.samhsa.gov/prevention/suicide.aspx", title: "SAMHSA Suicide Prevention" }),
+    	new ResourceItem({ url: "http://www.save.org/", title: "Suicide Awareness Voices of Education" }),
     	new ResourceItem({ url: "http://www.metanoia.org/suicide/", title: "Suicide: Read This First" })
     ]
   }),
@@ -58,7 +58,7 @@ var BaseResourceGroups = [
   new ResourceGroupObject({
     title: "ADHD",
     items: [
-    	new ResourceItem({ url: "http://www.add.org/", title: "Attention Deficit Disorder Association" }), 
+    	new ResourceItem({ url: "http://www.add.org/", title: "Attention Deficit Disorder Association" }),
     	new ResourceItem({ url: "http://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd/index.shtml", title: "Attention-Deficit Hyperactivity Disorder, NIMH" })
     ]
   }),
@@ -66,30 +66,30 @@ var BaseResourceGroups = [
     title: "Abuse",
     isRevealed: true,
     items: [
-    	new ResourceItem({ url: "http://www.childhelp.org/", title: "Childhelp USA®" }), 
-    	new ResourceItem({ url: "http://www.apa.org/topics/trauma/memories.aspx", title: "American Psychological Association Childhood Abuse" }), 
+    	new ResourceItem({ url: "http://www.childhelp.org/", title: "Childhelp USA®" }),
+    	new ResourceItem({ url: "http://www.apa.org/topics/trauma/memories.aspx", title: "American Psychological Association Childhood Abuse" }),
     	new ResourceItem({ url: "http://www.ndvh.org/", title: "The National Domestic Violence Hotline" })
     ]
   }),
   new ResourceGroupObject({
     title: "Mood Disorders",
     items: [
-    	new ResourceItem({ url: "http://www.pendulum.org/", title: "Bipolar Disorder News" }), 
-    	new ResourceItem({ url: "http://www.apa.org/topics/depress/recover.aspx", title: "American Psychological Association Depression" }), 
+    	new ResourceItem({ url: "http://www.pendulum.org/", title: "Bipolar Disorder News" }),
+    	new ResourceItem({ url: "http://www.apa.org/topics/depress/recover.aspx", title: "American Psychological Association Depression" }),
     	new ResourceItem({ url: "http://www.psycom.net/depression-test/", title: "Psycom 3 Minute Depression Test" })
     ]
   }),
   new ResourceGroupObject({
     title: "Autism Spectrum",
     items: [
-    	new ResourceItem({ url: "https://www.ninds.nih.gov/Disorders/All-Disorders/Asperger-Syndrome-Information-Page", title: "Asperger's Disorder" }), 
+    	new ResourceItem({ url: "https://www.ninds.nih.gov/Disorders/All-Disorders/Asperger-Syndrome-Information-Page", title: "Asperger's Disorder" }),
     	new ResourceItem({ url: "http://medicine.yale.edu/childstudy/autism/clinical_services/", title: "Autism Program at Yale" })
     ]
   }),
   new ResourceGroupObject({
     title: "PTSD",
     items: [
-    	new ResourceItem({ url: "http://www.sidran.org/", title: "Sidran Traumatic Stress Institute" }), 
+    	new ResourceItem({ url: "http://www.sidran.org/", title: "Sidran Traumatic Stress Institute" }),
     	new ResourceItem({ url: "http://www.ptsd.va.gov/", title: "National Center for PTSD" })
     ]
   }),
@@ -111,15 +111,15 @@ var BaseResourceGroups = [
   new ResourceGroupObject({
     title: "Personality",
     items: [
-    	new ResourceItem({ url: "http://www.mentalhelp.net/poc/center_index.php?id=8", title: "Mental Help Net - Personality Disorders" }), 
-    	new ResourceItem({ url: "http://www.keirsey.com/sorter/register.aspx", title: "Keirsey (Myers-Briggs) Temperament Sorter" }), 
+    	new ResourceItem({ url: "http://www.mentalhelp.net/poc/center_index.php?id=8", title: "Mental Help Net - Personality Disorders" }),
+    	new ResourceItem({ url: "http://www.keirsey.com/sorter/register.aspx", title: "Keirsey (Myers-Briggs) Temperament Sorter" }),
     	new ResourceItem({ url: "http://www.dpt.samhsa.gov/comor/hivaids.aspx", title: "Medication Assisted Substance Abuse Treatment" })
     ]
   }),
   new ResourceGroupObject({
     title: "Chemical dependency",
     items: [
-   		new ResourceItem({ url: "http://www.dpt.samhsa.gov/comor/hivaids.aspx", title: "Medication Assisted Substance Abuse Treatment" }), 
+   		new ResourceItem({ url: "http://www.dpt.samhsa.gov/comor/hivaids.aspx", title: "Medication Assisted Substance Abuse Treatment" }),
     	new ResourceItem({ url: "http://www.journals.elsevier.com/journal-of-substance-abuse-treatment/", title: "Journal of Substance Abuse Treatment" })
     ]
   }),
@@ -141,5 +141,3 @@ var BaseResourceGroups = [
     ]
   })
 ];
-
-

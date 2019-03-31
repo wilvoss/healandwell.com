@@ -1,115 +1,149 @@
 <!DOCTYPE html>
-<html ng-cloak lang="en" ng-app="app" ng-class="{'narrow' : app.IsNarrow, 'menuOn' : app.MenuOn}" ng-controller="appController as app">
+<html ng-cloak
+	lang="en"
+	ng-app="app"
+	ng-class="{'narrow' : app.IsNarrow, 'menuOn' : app.MenuOn}"
+	ng-controller="appController as app">
 
-	<head>
-		<title>{{app.CurrentLink.name}} - Healing and Wellness Counseling</title>
-		<meta charset="utf-8" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta http-equiv="cache-control" content="max-age=0" />
-		<meta http-equiv="cache-control" content="no-cache" />
-		<meta http-equiv="expires" content="0" />
-		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-		<meta http-equiv="pragma" content="no-cache" />
+<head>
+	<title>{{app.CurrentLink.name}} - Healing and Wellness Counseling</title>
+	<meta charset="utf-8" />
+	<meta name="apple-mobile-web-app-capable"
+		content="yes" />
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge" />
+	<meta http-equiv="cache-control"
+		content="max-age=0" />
+	<meta http-equiv="cache-control"
+		content="no-cache" />
+	<meta http-equiv="expires"
+		content="0" />
+	<meta http-equiv="expires"
+		content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma"
+		content="no-cache" />
 
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-transluscent">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style"
+		content="black-transluscent">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<meta content="Healing and Wellness Counseling Appointment Request: Melinda Cocolas, LMHP | Individual Therapy | Dialectical Behavioral Counseling | DBT | Omaha Nebraska"
-		    dir="LTR" lang="en" name="title">
-		<meta content="Healing, Wellness, Healing and Wellness Counseling, Melinda Cocolas, Cocolas, DBT, Dialectical Behavioral Therapy, Cognitive Behavioral Therapy, CBT, Omaha, Omaha NE, Omaha Nebraska, Nebraska, Omaha Counselor, 68144, 68114, 68132, Therapist, Therapy, Counseling, Counselor, Psychotherapy, Psychotherapist, Grief Counseling, Mental Health Care, Depression, Anxiety, Co-occurring Disorders, Relationship Counseling, Marriage Therapy, Therapists, Counselors, Mental Health Counselor"
-		    dir="LTR" lang="en" name="keywords">
-		<meta content="Melinda Cocolas provides counseling and therapy services for adult individuals and couples in and around the greater Omaha area."
-		    dir="LTR" lang="en" name="description">
+	<meta
+		content="Healing and Wellness Counseling Appointment Request: Melinda Cocolas, LMHP | Individual Therapy | Dialectical Behavioral Counseling | DBT | Omaha Nebraska"
+		dir="LTR"
+		lang="en"
+		name="title">
+	<meta
+		content="Healing, Wellness, Healing and Wellness Counseling, Melinda Cocolas, Cocolas, DBT, Dialectical Behavioral Therapy, Cognitive Behavioral Therapy, CBT, Omaha, Omaha NE, Omaha Nebraska, Nebraska, Omaha Counselor, 68144, 68114, 68132, Therapist, Therapy, Counseling, Counselor, Psychotherapy, Psychotherapist, Grief Counseling, Mental Health Care, Depression, Anxiety, Co-occurring Disorders, Relationship Counseling, Marriage Therapy, Therapists, Counselors, Mental Health Counselor"
+		dir="LTR"
+		lang="en"
+		name="keywords">
+	<meta
+		content="Melinda Cocolas provides counseling and therapy services for adult individuals and couples in and around the greater Omaha area."
+		dir="LTR"
+		lang="en"
+		name="description">
 
-		<link rel="stylesheet" href="css/controls.css" media="screen" />
-		<link rel="stylesheet" id="mainCss" href="css/main.css" media="screen" />
+	<link rel="stylesheet"
+		href="css/controls.css?001"
+		media="screen" />
+	<link rel="stylesheet"
+		id="mainCss"
+		href="css/main.css?001"
+		media="screen" />
 
-		<link rel="shortcut icon" href="images/favicon.png">
-		<link rel="apple-touch-icon" href="images/hw-icon.png">
+	<link rel="shortcut icon"
+		href="images/favicon.png">
+	<link rel="apple-touch-icon"
+		href="images/hw-icon.png">
 
-		<meta property="og:title" content="Healing and Wellness Counseling" />
-		<meta property="og:type" content="image/png" />
-		<meta property="og:url" content="http://healandwell.com" />
-		<meta property="og:image" content="http://healandwell.com/images/hw-icon-og.png" />
+	<meta property="og:title"
+		content="Healing and Wellness Counseling" />
+	<meta property="og:type"
+		content="image/png" />
+	<meta property="og:url"
+		content="http://healandwell.com" />
+	<meta property="og:image"
+		content="http://healandwell.com/images/hw-icon-og.png" />
 
-		<script src="assets/utilities.js"></script>
-		<script src="assets/jquery-3.2.1.js"></script>
-		<script src="assets/moment.js"></script>
-		<script src="assets/angular.min.js"></script>
-		<script src="assets/angular-sanitize.js"></script>
+	<script src="assets/utilities.min.js?001"></script>
+	<script src="assets/jquery-3.2.1.min.js?001"></script>
+	<script src="assets/moment.js?001"></script>
+	<script src="assets/angular.min.js?001"></script>
+	<script src="assets/angular-sanitize.js?001"></script>
 
-	</head>
+</head>
 
-	<body>
-		<narrowNav ng-class="{'titleOn' : app.HealingAndWellnessScrolledOutOfView}">
-			<hamburgerMenu class="narrowNavMenu" ng-click="app.MenuOn=!app.MenuOn">
-				<hwtitle>Healing
-					<span>&amp;</span> Wellness</hwtitle>
-			</hamburgerMenu>
-			<ul class="narrowNavLinks">
-				<li ng-click="app.PushHistory(link.id); app.MenuOn=false" ng-if="!link.isDisabled" ng-repeat="link in app.NavigationLinks | orderObjectBy:'position'"
-				    ng-class="{'on' : link.isSelected}">
-					<button>{{link.name}}</button>
-				</li>
+<body>
+	<narrowNav ng-class="{'titleOn' : app.HealingAndWellnessScrolledOutOfView}">
+		<hamburgerMenu class="narrowNavMenu"
+			ng-click="app.MenuOn=!app.MenuOn">
+			<hwtitle>Healing <span>&amp;</span> Wellness</hwtitle>
+		</hamburgerMenu>
+		<ul class="narrowNavLinks">
+			<li ng-click="app.PushHistory(link.id); app.MenuOn=false"
+				ng-if="!link.isDisabled"
+				ng-repeat="link in app.NavigationLinks | orderObjectBy:'position'"
+				ng-class="{'on' : link.isSelected}"><button>{{link.name}}</button></li>
+		</ul>
+	</narrowNav>
+	<!--<foil onclick="this.className='unveil'"></foil>-->
+	<wrap>
+		<header>
+			<img ng-click="app.PushHistory('home'); app.MenuOn=false"
+				src="images/hwlogo-no-title.png">
+			<hgroup>
+				<h1>Healing <span>&amp;</span> Wellness Counseling</h1>
+				<h3>Melinda R. Cocolas, MS, LMHP </h3>
+				<p>Omaha, NE&nbsp;-&nbsp;<a ng-click="app.PushHistory('connect'); app.MenuOn=false"
+						href="tel:531-222-6371">(531) 222-6371</a></p>
+				<clear />
+			</hgroup>
+		</header>
+		<nav>
+			<ul id="navlist">
+				<li ng-click="app.PushHistory(link.id); app.MenuOn=false"
+					ng-if="!link.isDisabled"
+					ng-repeat="link in app.NavigationLinks | orderObjectBy:'position'"
+					ng-class="{'on' : link.isSelected}"><button>{{link.name}}</button></li>
 			</ul>
-		</narrowNav>
-		<!--<foil onclick="this.className='unveil'"></foil>-->
-		<wrap>
-			<header>
-				<img ng-click="app.PushHistory('home'); app.MenuOn=false" src="images/hwlogo-no-title.png">
-				<hgroup>
-					<h1>Healing
-						<span>&amp;</span> Wellness Counseling</h1>
-					<h3>Melinda R. Cocolas, MS, LMHP </h3>
-					<p>Omaha, NE&nbsp;-&nbsp;
-						<a ng-click="app.PushHistory('connect'); app.MenuOn=false" href="tel:531-222-6371">(531) 222-6371</a>
-					</p>
-					<clear />
-				</hgroup>
-			</header>
-			<nav>
-				<ul id="navlist">
-					<li ng-click="app.PushHistory(link.id); app.MenuOn=false" ng-if="!link.isDisabled" ng-repeat="link in app.NavigationLinks | orderObjectBy:'position'"
-					    ng-class="{'on' : link.isSelected}">
-						<button>{{link.name}}</button>
-					</li>
-				</ul>
-				<clear></clear>
-			</nav>
-			<main ng-style="{'height' : app.CurrentMainHeight}">
-				<page ng-repeat="link in app.NavigationLinks | orderObjectBy:'position'" ng-class="{'show' : link.isSelected}" ng-style="{'transform' : ('translateX('+ (app.SectionOffset) + 'px)'), 'width' : (app.SectionWidth + 'px')}">
-					<ng-include src="link.page">
-					</ng-include>
-				</page>
-			</main>
 			<clear></clear>
-		</wrap>
-		<wrap class="footerWrap">
-			<footer>
-				<ul>
-					<li>&copy;{{app.Today | date : 'y'}} {{ app.IsNarrow ? "HWC" : "Healing and Wellness Counseling, LLC"}}</li>
-					<li ng-if="!app.IsNarrow">|</li>
-					<li ng-if="!app.IsNarrow">
-						<a ng-click="app.PushHistory('connect'); app.MenuOn=false" alt="" title="">Location</a>
-					</li>
-					<li>
-						<a ng-click="app.PushHistory('connect'); app.MenuOn=false" alt="" title="">Appointments</a>
-					</li>
-					<li>
-						<a href="documents/Notice of Privacy Practices (800505_2).pdf" target="_blank">Privacy Practices</a>
-					</li>
-				</ul>
-			</footer>
-		</wrap>
-		<!--<clear id="lastClear">&nbsp;</clear>-->
-		<script src="assets/resources_data.js"></script>
-		<script src="controller/app_controller.js"></script>
-		<script type="text/javascript">
-			angular.module("app", ["appModule", "ngSanitize"]);
-		</script>
+		</nav>
+		<main ng-style="{'height' : app.CurrentMainHeight}">
+			<page ng-repeat="link in app.NavigationLinks"
+				class="mainSection"
+				ng-class="{'show' : link.isSelected}">
+				<ng-include src="link.page">
+				</ng-include>
+			</page>
+		</main>
+		<clear></clear>
+	</wrap>
+	<wrap class="footerWrap">
+		<footer>
+			<ul>
+				<li>&copy;{{app.Today | date : 'y'}} {{ app.IsNarrow ? "HWC" : "Healing and Wellness Counseling, LLC"}}
+				</li>
+				<li ng-if="!app.IsNarrow">|</li>
+				<li ng-if="!app.IsNarrow"><a ng-click="app.PushHistory('connect'); app.MenuOn=false"
+						alt=""
+						title="">Location</a></li>
+				<li><a ng-click="app.PushHistory('connect'); app.MenuOn=false"
+						alt=""
+						title="">Appointments</a></li>
+				<li><a href="documents/Notice of Privacy Practices (800505_2).pdf"
+						target="_blank">Privacy Practices</a></li>
+			</ul>
+		</footer>
+	</wrap>
+	<!--<clear id="lastClear">&nbsp;</clear>-->
+	<script src="assets/resources_data.min.js?001"></script>
+	<script src="controller/app_controller.js?001"></script>
+	<script type="text/javascript">
+		angular.module("app", ["appModule", "ngSanitize"]);
+	</script>
 
 
-	</body>
+</body>
 
 </html>

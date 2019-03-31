@@ -19,35 +19,37 @@ strong {
 }
 
 html {
-  width: 100%;
+  background-color: rgba(80, 128, 157, 1);
+  background-image: url('../images/circle-1.png'), url('../images/circle-2.png'),
+    url('../images/circle-3.png');
+  background-position: left 50px top 0px, left 20px top 20px,
+    left 100px top 10px;
   height: 100%;
-  overflow: hidden;
   margin: 0;
+  overflow: hidden;
   padding: 0;
   transition: 500ms background-color ease-out, 500ms ease-out opacity;
-  background-color: rgba(80, 128, 157, 1);
-  background-image: url('../images/circle-1.png'), url('../images/circle-2.png'), url('../images/circle-3.png');
-  background-position: left 50px top 0px, left 20px top 20px, left 100px top 10px;
+  width: 100%;
 }
 
 .narrow {
-  /*overflow: auto;*/
   background: rgba(255, 255, 255, 1);
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  padding: 0;
-  margin: 0;
+  color: rgba(56, 51, 48, 1);
   font-family: 'Assistant', sans-serif;
   font-size: 100%;
-  transition: 500ms ease-out color, 500ms ease-out background, 500ms ease-out opacity;
-  transition-delay: 350ms;
-  color: rgba(56, 51, 48, 1);
-  transform: translateZ(0);
+  height: 100%;
+  margin: 0;
+  padding: 0;
   -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: 500ms ease-out color, 500ms ease-out background-color,
+    500ms ease-out opacity;
+  transition-delay: 350ms;
+  width: 100%;
+  z-index: 0;
 }
 
 .normal body {
@@ -79,18 +81,18 @@ body .bigger {
 }
 
 wrap {
-  opacity: 0;
-  max-width: 1088px;
+  display: block;
   margin: 0px auto 0px auto;
+  max-width: 1088px;
+  opacity: 0;
+  -webkit-overflow-scrolling: touch;
   padding: 20px 0px 0px 0px;
   pointer-events: none;
-  display: block;
+  touch-action: auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   transition: 250ms padding ease-out, 250ms opacity ease-out;
   transition-delay: 0ms, 350ms;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  touch-action: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .loaded wrap {
@@ -99,10 +101,10 @@ wrap {
 }
 
 .loaded.narrow wrap {
-  overflow: scroll;
   height: 100%;
   margin: 0px;
   max-width: initial;
+  overflow: hidden;
 }
 
 p,
@@ -114,15 +116,15 @@ h5,
 h6,
 ul,
 li {
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal;
   line-height: 140%;
   margin: 0;
   padding: 0;
   transition: 250ms ease-out color, ease-out background;
-  user-select: none;
   -webkit-user-select: none;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  cursor: default;
+  user-select: none;
 }
 
 h1,
@@ -131,9 +133,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Assistant', sans-serif;
   color: rgba(105, 167, 205, 1);
-  /*letter-spacing: -1px;*/
+  font-family: 'Assistant', sans-serif;
 }
 
 h3,
@@ -159,21 +160,21 @@ section h3,
 section h4,
 section h5,
 section h6 {
-  margin-top: 1em;
   margin-bottom: 0em;
+  margin-top: 1em;
 }
 
 map {
-  display: block;
-  margin: 0px -40px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   background: url(../images/map-1.gif) no-repeat center center;
   background-size: auto 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0px -40px;
 }
 .narrow map {
-  margin: 0px -20px;
-  background-size: 235%;
   background-position: -150px -4px;
+  background-size: 235%;
+  margin: 0px -20px;
 }
 
 section iframe + h2 {
@@ -181,7 +182,6 @@ section iframe + h2 {
 }
 
 section h2 span {
-  /*font-size: .5em;*/
   color: rgba(255, 120, 0, 1);
   cursor: pointer;
   display: none;
@@ -192,15 +192,9 @@ section h2 span.revealed {
   color: black;
 }
 
-/*section h3:first-of-type, section h4:first-of-type, section h5:first-of-type, section h6:first-of-type {
-  margin-top: .2em;
-  margin-bottom: 0em;
-}*/
-
 header h1,
 .narrow header h1 {
   color: rgba(105, 167, 205, 1);
-  /*font-family: 'Times New Roman', Times, serif;*/
 }
 
 header h1 span {
@@ -219,32 +213,26 @@ header h3 {
 
 header p {
   color: rgba(56, 51, 48, 1);
-  margin-bottom: 0em;
   font-weight: 100;
+  margin-bottom: 0em;
 }
 
 p {
   margin-bottom: 1em;
-  /*font-size: 1.1em;*/
 }
 
 li {
-  /*font-size: 1.1em;*/
   list-style: none;
 }
 
 a {
-  text-decoration: none;
-  /*color: rgba(0, 0, 0, .5);*/
   color: rgba(56, 51, 48, 1);
+  text-decoration: none;
 }
 
 ul {
   list-style: none;
   list-style-type: none;
-}
-
-ul.bulleted {
 }
 
 ul.bulleted li:before {
@@ -274,45 +262,43 @@ section {
 }
 
 header {
-  padding: 20px 20px 0px 20px;
-  /*font-family: "Times New Roman";*/
-  text-align: left;
-  /*background: rgba(56, 51, 48, 1);*/
-  background-size: 100%;
+  background: rgba(255, 255, 255, 1);
   background-position: right center;
   background-repeat: no-repeat;
-  border-top: 3px solid rgba(255, 120, 0, 1);
-  transition: 250ms ease-out border-radius, 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
-  /*background: rgba(253, 251, 245, 1);*/
-  background: rgba(255, 255, 255, 1);
-  margin-top: 0px;
+  background-size: 100%;
   border-radius: 8px 8px 0px 0px;
+  border-top: 3px solid rgba(255, 120, 0, 1);
   color: rgb(255, 255, 255);
+  margin-top: 0px;
+  padding: 20px 20px 0px 20px;
+  text-align: left;
+  transition: 250ms ease-out border-radius, 250ms ease-out color,
+    250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity,
+    250ms ease-out background, 250ms ease-out margin, font-size 0ms;
 }
 
 header h1 {
-  transition: 250ms margin ease-out;
-  margin-top: 40px;
   font-size: 1.9em;
+  margin-top: 40px;
+  transition: 250ms margin ease-out;
 }
 
 .narrow header h1 {
-  margin-top: 39px;
-  font-size: 2.3em;
   clear: both;
-  /*display: none;*/
+  font-size: 2.3em;
+  margin-top: 39px;
 }
 
 header h2 {
-  font-style: oblique;
   color: black;
+  font-style: oblique;
 }
 
 .narrow header {
-  font-size: 70%;
-  border-width: 0px;
-  border-radius: 0px 0px 0px 0px;
   background-color: rgba(250, 248, 243, 1);
+  border-radius: 0px 0px 0px 0px;
+  border-width: 0px;
+  font-size: 70%;
   padding-bottom: 20px;
 }
 
@@ -321,7 +307,6 @@ header h2 {
 }
 
 .narrow header h3 {
-  /*display: none;*/
   font-size: 1.3em;
   padding-top: 5px;
 }
@@ -333,21 +318,21 @@ header h2 {
 }
 
 header img {
-  width: 140px;
   float: left;
   margin: 0px 0px 10px 3px;
   transition: 250ms all ease-out;
+  width: 140px;
 }
 
 .narrow header img {
-  width: 70px;
-  margin: 0px 0px 0px -6px;
   display: none;
+  margin: 0px 0px 0px -6px;
+  width: 70px;
 }
 
 clear {
-  display: block;
   clear: both;
+  display: block;
 }
 
 button,
@@ -356,88 +341,86 @@ a {
 }
 
 nav {
+  background: rgba(0, 0, 0, 0.2);
+  clear: both;
+  font-size: 100%;
+  overflow: hidden;
   padding: 8px 20px 0px 20px;
   text-align: left;
-  overflow: hidden;
-  clear: both;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
   white-space: nowrap;
-  background: rgba(0, 0, 0, 0.2);
-  font-size: 100%;
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
 }
 
 .narrow nav {
+  background: rgba(255, 255, 255, 0.9);
   padding: 0px;
   width: 100px;
-  background: rgba(255, 255, 255, 0.9);
 }
 
 nav ul {
-  width: intrinsic;
   white-space: nowrap;
+  width: intrinsic;
 }
 
 .narrow ul.narrowNavLinks {
   background: rgba(255, 255, 255, 0);
-  position: fixed;
-  text-align: right;
   border: 1px solid rgba(0, 0, 0, 0);
-  margin-left: 0px;
-  right: 110px;
-  /*margin-right: -100px;*/
-  /*border: 1px solid red;*/
-  margin-top: -14px;
   border-radius: 3px;
   font-size: 1.3em;
+  margin-left: 0px;
+  margin-top: -14px;
   padding: 20px 0px 20px 0px;
-  z-index: 1000;
+  position: fixed;
+  right: 110px;
+  text-align: right;
   top: 0px;
   transition: 250ms all ease-out;
+  z-index: 1000;
 }
 
 .narrowNavMenu {
-  opacity: 0;
-  font-size: 1.5em;
-  pointer-events: none;
+  -webkit-backdrop-filter: blur(5px);
   cursor: pointer;
+  font-size: 1.5em;
+  opacity: 0;
+  pointer-events: none;
   position: fixed;
   transition: 250ms all ease-out;
-  /*transition-delay: 250ms;*/
-  -webkit-backdrop-filter: blur(5px);
 }
 
 .narrow .narrowNavMenu {
   opacity: 1;
   pointer-events: all;
-  /*transition-delay: 250ms;*/
 }
 
 .narrowNavMenu {
-  display: block;
-  padding-top: 15px;
-  top: 0px;
-  color: rgba(105, 95, 85, 1);
-  z-index: 1001;
-  width: 100%;
-  text-align: left;
-  padding-left: 70px;
-  position: fixed;
-  margin-right: 0px;
-  height: 46px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0) url(../images/hw-icon.png) no-repeat left 20px top 16px;
-  background-size: 34px;
+  background: rgba(255, 255, 255, 0) url(../images/hw-icon.png) no-repeat left
+    20px top 16px;
   background-color: rgba(250, 248, 243, 0.9);
-  /*border-bottom: 1px solid rgba(255,250,237,1);*/
+  background-size: 34px;
+  color: rgba(105, 95, 85, 1);
+  display: block;
+  height: 46px;
+  margin-right: 0px;
+  overflow: hidden;
+  padding-left: 70px;
+  padding-top: 15px;
+  position: fixed;
+  text-align: left;
+  top: 0px;
+  width: 100%;
+  z-index: 1001;
 }
 
 .narrowNavMenu hwtitle {
-  display: block;
-  opacity: 0;
-  transition: 250ms all ease-out;
   color: rgba(105, 167, 205, 1);
-  padding-top: 1px;
+  display: block;
   font-weight: 100;
+  opacity: 0;
+  padding-top: 1px;
+  transition: 250ms all ease-out;
 }
 .titleOn .narrowNavMenu {
   background-color: rgba(250, 248, 243, 0.9);
@@ -461,14 +444,13 @@ nav ul {
 }
 
 .narrowNavMenu::before {
-  font-family: 'Khula', sans-serif;
+  color: rgba(255, 120, 0, 1);
   content: '\2630';
-  top: 14px;
+  font-family: 'Khula', sans-serif;
   margin-right: 60px;
   position: absolute;
-  /*color: rgba(105, 167, 205, 1);*/
-  color: rgba(255, 120, 0, 1);
   right: 20px;
+  top: 14px;
 }
 
 ul.narrowNavLinks {
@@ -476,18 +458,17 @@ ul.narrowNavLinks {
 }
 
 .narrow ul.narrowNavLinks {
-  /*box-shadow: 0px 0px 5px rgba(0, 0, 0, .1);*/
-  display: block;
-  opacity: 1;
-  pointer-events: none;
   background: rgba(255, 255, 255, 1);
   background: white;
-  width: 100%;
+  display: block;
   height: 100%;
   left: 0px;
-  top: 0px;
+  opacity: 1;
   padding: 10px 0px 10px 0px;
+  pointer-events: none;
+  top: 0px;
   transform: translateY(-100%);
+  width: 100%;
 }
 
 .narrow nav {
@@ -495,100 +476,93 @@ ul.narrowNavLinks {
 }
 
 .narrow.menuOn ul.narrowNavLinks {
-  transform: translateY(0%);
   opacity: 1;
   pointer-events: all;
+  transform: translateY(0%);
 }
 
 .narrow ul.narrowNavLinks li,
 .narrow ul.narrowNavLinks li {
-  /*opacity: 0;*/
-  /*pointer-events: none;*/
-  text-align: center;
   display: block;
+  text-align: center;
 }
 
 .narrow ul.narrowNavLinks li.on {
   background: rgba(255, 120, 0, 0);
   border-radius: 0px;
   cursor: default;
-  /*	opacity: 1;
-		pointer-events: all;
-		display: block;
-		position: relative;
-		*/
 }
 
 nav li,
 ul.narrowNavLinks li {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 3px 3px 0px 0px;
+  border-top: 2px solid rgba(255, 120, 0, 0);
+  cursor: pointer;
   display: inline-block;
   font-size: 1em;
-  /*float: left;*/
   margin-right: 2px;
-  background: rgba(0, 0, 0, 0);
-  border-top: 2px solid rgba(255, 120, 0, 0);
-  border-radius: 3px 3px 0px 0px;
-  transition: 250ms ease-out border-color, 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin;
   margin-top: 0px;
-  cursor: pointer;
+  transition: 250ms ease-out border-color, 250ms ease-out color,
+    250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity,
+    250ms ease-out background, 250ms ease-out margin;
 }
 
 l.narrowNavLinks li {
-  float: left;
   display: block;
+  float: left;
 }
 
 nav li.on,
 nav li.on:active,
 nav li.on:focus {
-  border-top-color: rgba(255, 120, 0, 0.9);
   background: rgba(255, 255, 255, 1);
+  border-top-color: rgba(255, 120, 0, 0.9);
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   pointer-events: none;
 }
 
 .narrow ul.narrowNavLinks li {
-  /*background: rgba(255, 255, 255, 1);*/
-  border-top: 0px solid rgba(255, 120, 0, 0);
   border-radius: none;
+  border-top: 0px solid rgba(255, 120, 0, 0);
   box-shadow: none;
-  margin-right: 0px;
   float: none;
+  margin-right: 0px;
 }
 
 nav li:hover {
-  border-top-color: rgba(255, 120, 0, 1);
   background: rgba(255, 255, 255, 1);
+  border-top-color: rgba(255, 120, 0, 1);
   opacity: 1;
 }
 
 .narrow ul.narrowNavLinks li:hover {
-  border-top: 0px solid rgba(253, 251, 245, 1);
   background: rgba(255, 255, 255, 0);
   border-radius: 0px;
+  border-top: 0px solid rgba(253, 251, 245, 1);
 }
 
 .narrow ul.narrowNavLinks li.on:hover {
-  /*background: rgba(105, 167, 205, 1);*/
-  /*border-top: 0px solid rgba(253, 251, 245, 1);*/
   border-radius: 0px;
 }
 
 nav li button,
 .narrow ul.narrowNavLinks li button {
-  font-family: 'Assistant', sans-serif;
-  display: block;
-  margin: 0px;
-  padding: 6px 21px 3px;
-  color: rgba(255, 255, 255, 1);
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0px -20px 5px -20px rgba(0, 0, 0, 0);
-  transition: 250ms ease-out box-shadow, 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin;
-  outline: none;
-  border: none;
   background: none;
+  border: none;
+  box-shadow: inset 0px -20px 5px -20px rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 1);
   cursor: pointer;
+  display: block;
+  font-family: 'Assistant', sans-serif;
   font-size: 1em;
+  margin: 0px;
+  outline: none;
+  padding: 6px 21px 3px;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
+  transition: 250ms ease-out box-shadow, 250ms ease-out color,
+    250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity,
+    250ms ease-out background, 250ms ease-out margin;
 }
 
 nav li:hover button {
@@ -600,17 +574,17 @@ nav li:hover button {
 }
 
 .narrow ul.narrowNavLinks li button {
-  padding: 8px 0px 8px 70px;
-  width: 100%;
-  line-height: auto;
   box-shadow: none;
   font-size: 1em;
+  line-height: auto;
+  padding: 8px 0px 8px 70px;
   text-align: left;
+  width: 100%;
 }
 
 nav li.on button {
-  text-shadow: 0px 1px 0px white;
   box-shadow: none;
+  text-shadow: 0px 1px 0px white;
 }
 
 .narrow ul.narrowNavLinks li.on button {
@@ -622,61 +596,66 @@ nav li:hover button,
 nav li.on button,
 nav li button:hover,
 .narrow ul.narrowNavLinks li button {
-  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0);
   color: black;
+  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0);
 }
 
 .narrow ul.narrowNavLinks li button {
-  text-shadow: none;
-  /*color: rgba(0,0, 0, .5);*/
   color: rgba(105, 95, 85, 1);
+  text-shadow: none;
 }
 
 main {
-  display: block;
-  padding: 0px;
-  margin: 0px 20px;
-  border-top: 0px solid rgba(255, 255, 255, 1);
   background: rgba(255, 255, 255, 1);
-  overflow-y: auto;
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
-  touch-action: auto;
+  border-top: 0px solid rgba(255, 255, 255, 1);
+  display: block;
+  margin: 0px 20px;
   -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
   overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0px;
+  touch-action: auto;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
+  white-space: nowrap;
 }
 
 .narrow main {
-  margin: 0px 0px 0px;
-  padding: 20px 20px 40px;
   border-radius: 0px;
-  /*border-top-width: 30px;*/
+  margin: 0px 0px 0px;
   overflow: visible;
+  padding: 20px 0px 40px;
 }
 
 page {
   display: inline-block;
-  vertical-align: top;
-  width: inherit;
   opacity: 1;
-  /* opacity: 0; */
-  /* display: none; */
+  overflow-x: hidden;
+  overflow-y: scroll;
   transition: 300ms all ease-out;
   transition-delay: 0ms;
+  vertical-align: top;
+  width: inherit;
+}
+
+.narrow page {
+  padding: 0px 20px;
 }
 section {
-  padding-top: 20px;
-  padding-bottom: 20px;
   background: rgba(253, 251, 245, 0);
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
   white-space: normal;
 }
 
 a {
-  /*border-bottom: 1px dashed rgba(255, 168, 0, 1);*/
-  text-decoration: none;
   color: rgba(255, 120, 0, 1);
+  text-decoration: none;
   transition: 250ms color ease-out, 250ms border ease-out;
 }
 
@@ -691,26 +670,24 @@ section ul.collapsable h3 {
 section ul.collapsable h3:before {
   color: rgba(255, 120, 0, 1);
   content: '⊶ ';
-  font-size: 20px;
-  font-family: sans;
-  margin-right: 0.18em;
-  margin-left: -0.1em;
-  transform: rotate(-90deg) translateY(-1px) translateX(-1px);
-  /*transition: 500ms all ease-out;*/
   display: inline-block;
+  font-family: sans;
+  font-size: 20px;
+  margin-left: -0.1em;
+  margin-right: 0.18em;
+  transform: rotate(-90deg) translateY(-1px) translateX(-1px);
 }
 
 section ul.collapsable.revealed h3:before {
   color: rgba(105, 95, 85, 1);
   content: '⊷ ';
-  /*transform: rotate(90deg);*/
 }
 
 section ul.collapsable li {
   max-height: 0px;
+  opacity: 0;
   overflow: hidden;
   padding-left: 1em;
-  opacity: 0;
   transition: 500ms all ease-in-out;
 }
 
@@ -721,35 +698,34 @@ section ul.collapsable.revealed li {
 
 section ul li a,
 section ul li span {
-  padding-top: 10px;
-  /*line-height: 140%;*/
-  display: block;
   background: rgba(0, 0, 0, 0);
+  display: block;
   margin-left: 0px;
+  padding-top: 10px;
 }
 
 a:hover {
+  color: black;
   -webkit-text-decoration-color: rgba(255, 168, 0, 1);
   text-decoration-color: rgba(255, 168, 0, 1);
-  color: black;
 }
 
 section iframe {
-  /*float: right;*/
-  /*margin-left: 40px;*/
-  pointer-events: none;
-  border-radius: 3px;
-  width: 100%;
-  margin-bottom: 10px;
-  display: block;
   border: 0;
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 10px;
+  pointer-events: none;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
+  width: 100%;
 }
 
 .narrow section iframe {
   float: none;
-  width: 100%;
   margin-left: 0px;
+  width: 100%;
 }
 
 .narrow section iframe {
@@ -769,8 +745,8 @@ section iframe {
 }
 
 .narrow section {
-  padding-top: 0px;
   border-radius: 0px;
+  padding-top: 0px;
 }
 
 .narrow section h1 {
@@ -778,23 +754,22 @@ section iframe {
 }
 
 section aside {
-  width: 23%;
   float: right;
-  /*clear: none;*/
-  padding-right: 0px;
   padding-left: 40px;
+  padding-right: 0px;
+  width: 23%;
 }
 
 section aside.wide {
-  width: 43%;
   max-width: 400px;
+  width: 43%;
 }
 
 .narrow section aside {
-  width: 30%;
   max-width: 200px;
-  padding-right: 0px;
   padding-left: 20px;
+  padding-right: 0px;
+  width: 30%;
 }
 
 figcaption,
@@ -802,14 +777,13 @@ section aside h4,
 section aside p,
 section aside ul {
   display: block;
-  margin: 0px;
   font-size: 0.7em;
-  /*margin-left: 40px;*/
+  margin: 0px;
 }
 figcaption {
+  color: rgba(105, 95, 85, 1);
   margin-bottom: 20px;
   text-align: left;
-  color: rgba(105, 95, 85, 1);
 }
 figcaption:before {
   content: '© ';
@@ -821,18 +795,18 @@ figcaption:before {
 
 .narrow section aside h4,
 .narrow section aside p {
-  margin-left: 20px;
   display: none;
+  margin-left: 20px;
 }
 section img {
   border-radius: 3px;
 }
 
 section aside img {
-  width: 100%;
+  border-radius: 3px;
   margin: 0px 0px 0px 0px;
   transition: 250ms all ease-out;
-  border-radius: 3px;
+  width: 100%;
 }
 
 .narrow section aside.hideWhenNarrow {
@@ -841,73 +815,65 @@ section aside img {
 
 section.column2 article {
   display: inline-block;
-  width: 46%;
   vertical-align: top;
+  width: 46%;
 }
 section.column2 article:first-of-type {
   margin-right: 40px;
 }
 .narrow section.column2 article {
-  width: auto;
   float: none;
   margin-right: 0px;
+  width: auto;
 }
 
 .narrow section aside img.wide {
   width: 14em;
 }
 
-/*section article{
-    width: 50%;
-}
-.narrow section article{
-    width: 100%;
-}*/
-
 .loaded .footerWrap {
-  padding: 0px;
   height: auto;
+  padding: 0px;
 }
 
 footer {
-  padding: 14px 20px 10px 20px;
   background: rgba(105, 95, 85, 1);
   border-bottom: 3px solid rgba(255, 120, 0, 1);
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
   border-radius: 0px 0px 8px 8px;
   font-size: 0.8em;
   margin-left: 20px;
   margin-right: 20px;
+  padding: 14px 20px 10px 20px;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
 }
 
 .loaded.narrow .footerWrap {
-  padding: 0px;
+  bottom: 0px;
   height: auto;
+  padding: 0px;
   position: fixed;
   width: 100%;
-  bottom: 0px;
 }
 
 .narrow footer {
+  border-bottom: 0px;
   border-radius: 0px;
   display: block;
-  border-bottom: 0px;
 }
 
 footer li {
-  /*color: rgba(163, 151, 141, 1);*/
   color: rgba(177, 164, 153, 1);
-  padding-right: 20px;
   display: inline-block;
+  padding-right: 20px;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
 }
 
 footer a {
-  cursor: pointer;
-  /*color: rgba(163, 151, 141, 1);*/
   color: rgba(177, 164, 153, 1);
+  cursor: pointer;
   display: block;
-  /*text-decoration: underline;*/
 }
 
 footer a:hover {
@@ -915,9 +881,9 @@ footer a:hover {
 }
 
 #lastClear {
+  display: none;
   height: 20px;
   overflow: hidden;
-  display: none;
 }
 
 .narrow #lastClear {

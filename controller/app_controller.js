@@ -37,10 +37,13 @@ angular
     //    document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
     app.ToggleIsModernTheme = function() {
       app.IsModernTheme = !app.IsModernTheme;
-      document.getElementById('mainCss').href = app.IsModernTheme ? 'css/main-modern.css' : 'css/main.css';
+      document.getElementById('mainCss').href = app.IsModernTheme
+        ? 'css/main-modern.css'
+        : 'css/main.css';
     };
 
     app.CurrentMainHeight = '0px';
+    //app.CurrentPageHeight = 'auto';
     app.ContactGoogleMapCurrentHeight = '0px';
     app.PreviousNarrowMapHeight = '0px';
     /* ============= Theme management ============= */
@@ -98,20 +101,63 @@ angular
     /* ============= Navigation management ============= */
     app.CurrentLink;
     app.NavigationLinks = {
-      home: new NavigationLinkObject({ id: 'home', name: 'Welcome', position: 0, page: 'pages/welcome.html' }),
-      services: new NavigationLinkObject({ id: 'services', name: 'Services', position: 1, page: 'pages/services.html' }),
-      about: new NavigationLinkObject({ id: 'about', name: 'About', position: 2, page: 'pages/about.html' }),
-      connect: new NavigationLinkObject({ id: 'connect', name: 'Connect', position: 3, page: 'pages/connect.html', previousIds: ['contact'] }),
-      newClient: new NavigationLinkObject({ id: 'newClient', name: 'New clients', position: 4, page: 'pages/newClient.html', previousId: ['intake'] }),
-      resources: new NavigationLinkObject({ id: 'resources', name: 'Resources', position: 5, page: 'pages/resources.html' }),
+      home: new NavigationLinkObject({
+        id: 'home',
+        name: 'Welcome',
+        position: 0,
+        page: 'pages/welcome.html',
+      }),
+      services: new NavigationLinkObject({
+        id: 'services',
+        name: 'Services',
+        position: 1,
+        page: 'pages/services.html',
+      }),
+      about: new NavigationLinkObject({
+        id: 'about',
+        name: 'About',
+        position: 2,
+        page: 'pages/about.html',
+      }),
+      connect: new NavigationLinkObject({
+        id: 'connect',
+        name: 'Connect',
+        position: 3,
+        page: 'pages/connect.html',
+        previousIds: ['contact'],
+      }),
+      newClient: new NavigationLinkObject({
+        id: 'newClient',
+        name: 'New clients',
+        position: 4,
+        page: 'pages/newClient.html',
+        previousId: ['intake'],
+      }),
+      resources: new NavigationLinkObject({
+        id: 'resources',
+        name: 'Resources',
+        position: 5,
+        page: 'pages/resources.html',
+      }),
     };
 
     app.SelectLink = function(selected_link) {
+      narrow =
+        document.body.offsetWidth - delta < listWidth ||
+        document.body.offsetHeight < 550;
+      if (narrow) {
+        app.SectionWidth =
+          document.body.offsetWidth > 1048
+            ? 1048
+            : document.body.offsetWidth - 40;
+      }
       for (var link in app.NavigationLinks) {
         var target = app.NavigationLinks[link];
         target.isSelected = false;
         if (selected_link == target) {
-          app.SectionOffset = -app.SectionWidth * target.position;
+          var narrowAccomodation = narrow ? 40 : 0;
+          app.SectionOffset =
+            (-app.SectionWidth - narrowAccomodation) * target.position;
         }
       }
       if (selected_link == app.NavigationLinks.connect) {
@@ -197,16 +243,25 @@ var FontObject = function(spec) {
 };
 
 function UpdateLayout() {
-  narrow = document.body.offsetWidth - delta < listWidth || document.body.offsetHeight < 550;
+  narrow =
+    document.body.offsetWidth - delta < listWidth ||
+    document.body.offsetHeight < 550;
   app.IsNarrow = narrow;
-  var newHeight = document.body.offsetHeight - header.offsetTop - header.offsetHeight - nav.offsetHeight - footer.offsetHeight - (app.IsNarrow ? 0 : 20);
-  // app.SectionWidth = document.body.offsetWidth > 1048 ? 1048 : document.body.offsetWidth - 150;
+  var newHeight =
+    document.body.offsetHeight -
+    header.offsetTop -
+    header.offsetHeight -
+    nav.offsetHeight -
+    footer.offsetHeight +
+    (app.IsNarrow ? 0 : 100);
+  //app.SectionWidth = document.body.offsetWidth > 1048 ? 1048 : document.body.offsetWidth - 40;
 
   if (app.CurrentMainHeight != newHeight + 'px') {
     // log(app.CurrentMainHeight + " != " + newHeight);
     if (app.IsNarrow) {
       if (app.CurrentMainHeight != 'auto') {
         app.CurrentMainHeight = 'auto';
+        app.CurrentPageHeight = newHeight + 147 + 'px';
       }
       if (app.PreviousNarrowMapHeight != newHeight + 'px') {
         app.ContactGoogleMapCurrentHeight = parseInt(newHeight) + 'px';
@@ -239,7 +294,8 @@ function GetNavElementsWidth() {
     var width = 0;
     var modifier = navigator.userAgent.indexOf('iPad') != -1 ? 73 : 0;
     for (var i = list.length - 1; i >= 0; i--) {
-      width += list[i].getElementsByTagName('button')[0].offsetWidth + 2 - modifier;
+      width +=
+        list[i].getElementsByTagName('button')[0].offsetWidth + 2 - modifier;
     }
     listWidth = width;
     delta = 80; // navigator.userAgent.indexOf("iPad") != -1 ? 120 : navList.offsetWidth - listWidth;;
@@ -249,8 +305,11 @@ function GetNavElementsWidth() {
     app.UpdateCheckURL(true);
     scope.$apply();
     updateTime = window.setInterval(UpdateLayout, 16);
-    if (document.getElementsByTagName('html')[0].className.indexOf('loaded') == -1) {
-      document.getElementsByTagName('html')[0].className = document.getElementsByTagName('html')[0].className + ' loaded';
+    if (
+      document.getElementsByTagName('html')[0].className.indexOf('loaded') == -1
+    ) {
+      document.getElementsByTagName('html')[0].className =
+        document.getElementsByTagName('html')[0].className + ' loaded';
     }
   } else {
     window.setTimeout(GetNavElementsWidth, 100);
