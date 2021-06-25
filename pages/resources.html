@@ -2,14 +2,16 @@
 <!-- ================ RESOURCE ================ -->
 <!-- ========================================== -->
 <section>
-	<h2 ng-click="app.ToggleAllResources()" style="cursor: pointer;"><span ng-class="{'revealed' : app.ExpandAllResources}">{{ app.ExpandAllResources ? '⊶' : '⊷'}}</span>Resources</h2>
+	<h2 ng-click="app.ToggleAllResources()" style="cursor: pointer;"><span
+			ng-class="{'revealed' : app.ExpandAllResources}">{{ app.ExpandAllResources ? '⊶' : '⊷'}}</span>Resources
+	</h2>
 	<aside class="wide hideWhenNarrow">
 		<img src="images/Grandma2.jpg" />
 		<figcaption>Dorothy Jones</figcaption>
 	</aside>
 	<article>
-		<ul class="collapsable" ng-class="{'revealed' : groupItem.isRevealed}" ng-repeat="groupItem in app.ResourceGroups | orderBy : ['index', 'title']"
-		 ng-show="groupItem.isEnabled">
+		<ul class="collapsable" ng-class="{'revealed' : groupItem.isRevealed}"
+			ng-repeat="groupItem in app.ResourceGroups | orderBy : ['index', 'title']" ng-show="groupItem.isEnabled">
 			<h3 ng-bind-html="groupItem.title" ng-click="groupItem.isRevealed=!groupItem.isRevealed"></h3>
 			<li ng-repeat="item in groupItem.items | orderBy : 'title'">
 				<a href="{{item.url}}" target="_blank" ng-bind-html="item.title"></a>
