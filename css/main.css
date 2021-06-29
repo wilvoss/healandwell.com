@@ -2,24 +2,28 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300');
 @import url('https://fonts.googleapis.com/css?family=Assistant:400,600');
 
-/*
-orange 				color: rgba(255,168,0,1);
-orange dark			color: rgba(255,120,0,1);
-blue 				color: rgba(105,167,205,1);
-blue light			color: rgba(137,179,205,1);
-blue dark	 		color: rgba(80,128,157,1);
-blue-green          		color: rgba(118,126,128,1)
-text blue			color: rgba(105,167,205,1);
-coffee				color: rgba(105,95,85,1);
-latte 				color: rgba(255,250,237,1);
-*/
+:root {
+  --orange: rgb(255, 168, 0);
+  --orange-dark: rgb(255, 120, 0);
+  --blue: rgb(105, 167, 205);
+  --blue-light: rgb(137, 179, 205);
+  --blue-dark: rgb(80, 128, 157);
+  --blue-green: rgba(118, 126, 128, 1)
+  --text-blue: rgba(105, 167, 205, 1);
+  --coffee: rgb(85, 73, 63);
+  --latte: rgb(255, 250, 237);
+  --body: rgb(56, 51, 48);
+  --page-background: rgb(255, 255, 255);
+  --narrow-header-background: rgb(250, 248, 243);
+  --sub-text: rgb(133, 121, 112);
+}
 
 strong {
   font-weight: 600;
 }
 
 html {
-  background-color: rgba(80, 128, 157, 1);
+  background-color: var(--blue-dark);
   background-image: url('../images/circle-1.png'), url('../images/circle-2.png'),
     url('../images/circle-3.png');
   background-position: left 50px top 0px, left 20px top 20px,
@@ -33,11 +37,11 @@ html {
 }
 
 .narrow {
-  background: rgba(255, 255, 255, 1);
+  background: var(--page-background);
 }
 
 body {
-  color: rgba(56, 51, 48, 1);
+  color: var(--body);
   font-family: 'Assistant', sans-serif;
   font-size: 100%;
   height: 100%;
@@ -131,7 +135,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: rgba(105, 167, 205, 1);
+  color: var(--blue);
   font-family: 'Assistant', sans-serif;
 }
 
@@ -180,7 +184,7 @@ section iframe + h2 {
 }
 
 section h2 span {
-  color: rgba(255, 120, 0, 1);
+  color: var(--orange-dark);
   cursor: pointer;
   display: none;
   padding: 0px 0em 0px 0px;
@@ -192,11 +196,11 @@ section h2 span.revealed {
 
 header h1,
 .narrow header h1 {
-  color: rgba(105, 167, 205, 1);
+  color: var(--blue);
 }
 
 header h1 span {
-  color: rgba(255, 120, 0, 1);
+  color: var(--orange-dark);
 }
 
 .narrow header h1 {
@@ -204,13 +208,13 @@ header h1 span {
 }
 
 header h3 {
-  color: rgba(163, 151, 141, 1);
+  color: var(--sub-text);
   font-weight: 100;
   letter-spacing: 0px;
 }
 
 header p {
-  color: rgba(56, 51, 48, 1);
+  color: var(--body);
   font-weight: 100;
   margin-bottom: 0em;
 }
@@ -224,7 +228,7 @@ li {
 }
 
 a {
-  color: rgba(56, 51, 48, 1);
+  color: var(--body);
   text-decoration: none;
 }
 
@@ -263,13 +267,13 @@ section {
 }
 
 header {
-  background: rgba(255, 255, 255, 1);
+  background: var(--page-background);
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 8px 8px 0px 0px;
-  border-top: 3px solid rgba(255, 120, 0, 1);
-  color: rgb(255, 255, 255);
+  border-top: 3px solid --orange-dark;
+  color: var(--body);
   margin-top: 0px;
   padding: 20px 20px 0px 20px;
   text-align: left;
@@ -296,7 +300,7 @@ header h2 {
 }
 
 .narrow header {
-  background-color: rgba(250, 248, 243, 1);
+  background-color: var(--narrow-header-background);
   border-radius: 0px 0px 0px 0px;
   border-width: 0px;
   font-size: 70%;
@@ -401,7 +405,7 @@ nav ul {
     20px top 16px;
   background-color: rgba(250, 248, 243, 0.9);
   background-size: 34px;
-  color: rgba(105, 95, 85, 1);
+  color: var(--coffee);
   display: block;
   height: 46px;
   margin-right: 0px;
@@ -416,7 +420,7 @@ nav ul {
 }
 
 .narrowNavMenu hwtitle {
-  color: rgba(105, 167, 205, 1);
+  color: var(--blue);
   display: block;
   font-weight: 100;
   opacity: 0;
@@ -432,7 +436,7 @@ nav ul {
 }
 
 .narrowNavMenu hwtitle span {
-  color: rgba(255, 120, 0, 1);
+  color: var(--orange-dark);
 }
 
 .narrow .narrowNavMenu {
@@ -440,12 +444,12 @@ nav ul {
 }
 
 .narrow.menuOn .narrowNavMenu {
-  background-color: rgba(250, 248, 243, 1);
+  background-color: var(--narrow-header-background);
   transition-delay: 0ms;
 }
 
 .narrowNavMenu::before {
-  color: rgba(255, 120, 0, 1);
+  color: var(--orange-dark);
   content: '\2630';
   font-family: 'Khula', sans-serif;
   margin-right: 60px;
@@ -459,8 +463,7 @@ ul.narrowNavLinks {
 }
 
 .narrow ul.narrowNavLinks {
-  background: rgba(255, 255, 255, 1);
-  background: white;
+  background: var(--page-background);
   display: block;
   height: 100%;
   left: 0px;
@@ -533,7 +536,7 @@ nav li.on:focus {
 
 nav li:hover {
   background: rgba(255, 255, 255, 1);
-  border-top-color: rgba(255, 120, 0, 1);
+  border-top-color: var(--orange-dark);
   opacity: 1;
 }
 
@@ -589,7 +592,7 @@ nav li.on button {
 }
 
 .narrow ul.narrowNavLinks li.on button {
-  color: rgba(255, 120, 0, 1);
+  color: var(--orange-dark);
   cursor: default;
 }
 
@@ -602,7 +605,7 @@ nav li button:hover,
 }
 
 .narrow ul.narrowNavLinks li button {
-  color: rgba(105, 95, 85, 1);
+  color: var(--coffee);
   text-shadow: none;
 }
 
@@ -649,7 +652,7 @@ section {
 }
 
 a {
-  color: rgba(255, 120, 0, 1);
+  color: var(--orange-dark);
   text-decoration: none;
   transition: 250ms color ease-out, 250ms border ease-out;
 }
@@ -663,7 +666,7 @@ section ul.collapsable h3 {
 }
 
 section ul.collapsable h3:before {
-  color: rgba(255, 120, 0, 1);
+  color: var(--orange-dark);
   content: '⊶ ';
   display: inline-block;
   font-family: sans;
@@ -674,7 +677,7 @@ section ul.collapsable h3:before {
 }
 
 section ul.collapsable.revealed h3:before {
-  color: rgba(105, 95, 85, 1);
+  color: var(--coffee);
   content: '⊷ ';
 }
 
@@ -701,8 +704,8 @@ section ul li span {
 
 a:hover {
   color: black;
-  -webkit-text-decoration-color: rgba(255, 168, 0, 1);
-  text-decoration-color: rgba(255, 168, 0, 1);
+  -webkit-text-decoration-color: var(--orange);
+  text-decoration-color: var(--orange);
 }
 
 section iframe {
@@ -776,7 +779,7 @@ section aside ul {
   margin: 0px;
 }
 figcaption {
-  color: rgba(105, 95, 85, 1);
+  color: var(--coffee);
   margin-bottom: 20px;
   text-align: left;
 }
@@ -832,8 +835,8 @@ section.column2 article:first-of-type {
 }
 
 footer {
-  background: rgba(105, 95, 85, 1);
-  border-bottom: 3px solid rgba(255, 120, 0, 1);
+  background: var(--coffee);
+  border-bottom: 3px solid --orange-dark;
   border-radius: 0px 0px 8px 8px;
   font-size: 0.8em;
   margin-left: 20px;
