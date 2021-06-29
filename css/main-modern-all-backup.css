@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300');
+@import url("https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300");
 
 /*
 orange 				color: rgba(255,168,0,1);
@@ -19,12 +19,14 @@ html {
   padding: 0;
   transition: 500ms background-color ease-out, 500ms ease-out opacity;
   background-color: rgba(80, 128, 157, 1);
-  background-image: url('../images/circle-1.png'), url('../images/circle-2.png'), url('../images/circle-3.png');
-  background-position: left 50px top 0px, left 20px top 20px, left 100px top 10px;
+  background-image: url("../images/circle-1.png"), url("../images/circle-2.png"),
+    url("../images/circle-3.png");
+  background-position: left 50px top 0px, left 20px top 20px,
+    left 100px top 10px;
 }
 
 html.coffee {
-  background-image: url('../images/Grandma6.png');
+  background-image: url("../images/Grandma6.png");
   background-position: top center;
   background-repeat: repeat-y;
   background-size: 1280px;
@@ -48,9 +50,10 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: 'Abel';
+  font-family: "Abel";
   font-size: 100%;
-  transition: 500ms ease-out color, 500ms ease-out background, 500ms ease-out opacity;
+  transition: 500ms ease-out color, 500ms ease-out background,
+    500ms ease-out opacity;
   transition-delay: 350ms;
   color: rgba(56, 51, 48, 1);
   transform: translateZ(0);
@@ -111,7 +114,7 @@ foil {
   opacity: 0;
   pointer-events: none;
   background-color: rgba(105, 95, 85, 1);
-  background-image: url('../images/Grandma6.png');
+  background-image: url("../images/Grandma6.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 1280px;
@@ -127,7 +130,15 @@ foil {
   pointer-events: none;
 }
 
-p, h1, h2, h3, h4, h5, h6, ul, li {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
   line-height: 140%;
   margin: 0;
   padding: 0;
@@ -137,7 +148,12 @@ p, h1, h2, h3, h4, h5, h6, ul, li {
   -webkit-user-select: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: rgba(255, 120, 0, 1);
 }
 
@@ -145,13 +161,29 @@ h1 {
   line-height: 114%;
 }
 
-section h1, section h2, section h3, section h4, section h5, section h6, .orange section h1, .orange section h2, .orange section h3, .orange section h4, .orange section h5, .orange section h6 {
-  margin-top: .5em;
+section h1,
+section h2,
+section h3,
+section h4,
+section h5,
+section h6,
+.orange section h1,
+.orange section h2,
+.orange section h3,
+.orange section h4,
+.orange section h5,
+.orange section h6 {
+  margin-top: 0.5em;
   margin-bottom: 0em;
   color: rgba(105, 167, 205, 1);
 }
 
-.orange h1, .orange h2, .orange section h3, .orange section h4, .orange section h5, .orange section h6 {
+.orange h1,
+.orange h2,
+.orange section h3,
+.orange section h4,
+.orange section h5,
+.orange section h6 {
   color: rgba(105, 167, 205, 1);
   color: rgba(105, 167, 205, 1);
 }
@@ -177,19 +209,25 @@ p {
 
 a {
   text-decoration: none;
-  color: rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 ul {
   list-style: none;
 }
 
-header, nav, section, footer {
+header,
+nav,
+section,
+footer {
   margin-left: 40px;
   margin-right: 40px;
 }
 
-.narrow header, .narrow nav, .narrow section, .narrow footer {
+.narrow header,
+.narrow nav,
+.narrow section,
+.narrow footer {
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -201,7 +239,9 @@ header {
   background-size: 100%;
   background-position: right center;
   background-repeat: no-repeat;
-  transition: 250ms ease-out border-radius, 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
+  transition: 250ms ease-out border-radius, 250ms ease-out color,
+    250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity,
+    250ms ease-out background, 250ms ease-out margin, font-size 0ms;
   background: rgba(253, 251, 245, 1);
   margin-top: 0px;
   color: rgb(255, 255, 255);
@@ -256,14 +296,16 @@ clear {
 }
 
 nav {
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
   padding: 0px 20px 0px 20px;
   text-align: left;
   overflow: hidden;
   clear: both;
   white-space: nowrap;
   font-size: 100%;
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
 }
 
 .narrow nav {
@@ -324,7 +366,7 @@ nav ul h4 {
 }
 
 .narrow nav ul:hover {
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, .1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 168, 0, 1);
   border-color: rgba(105, 167, 205, 1);
@@ -359,14 +401,17 @@ nav li {
   float: left;
   margin-right: 0px;
   background: rgba(0, 0, 0, 0);
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin;
   font-weight: 400;
   margin-top: 0px;
   cursor: pointer;
 }
 
-nav li.on, nav li.on:active, nav li.on:focus {
-  background: rgba(0, 0, 0, .2);
+nav li.on,
+nav li.on:active,
+nav li.on:focus {
+  background: rgba(0, 0, 0, 0.2);
   pointer-events: none;
 }
 
@@ -383,11 +428,11 @@ nav li.on, nav li.on:active, nav li.on:focus {
 }
 
 nav li:hover {
-  background: rgba(0, 0, 0, .15);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .narrow nav li:hover {
-  background: rgba(105, 167, 205, .1);
+  background: rgba(105, 167, 205, 0.1);
   border-top: 0px solid rgba(253, 251, 245, 1);
   border-radius: 0px;
 }
@@ -399,22 +444,24 @@ nav li:hover {
 }
 
 button {
-  font-family: 'Abel';
+  font-family: "Abel";
 }
 
 nav li button {
   display: block;
   margin: 0px;
   padding: 9px 24px 9px;
-  color: rgba(255, 250, 237, .8);
+  color: rgba(255, 250, 237, 0.8);
   /*		text-shadow: 0px -1px 0px rgba(0,0,0,.2);*/
   box-shadow: inset 0px -20px 5px -20px rgba(0, 0, 0, 0);
-  transition: 250ms ease-out box-shadow, 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin;
+  transition: 250ms ease-out box-shadow, 250ms ease-out color,
+    250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity,
+    250ms ease-out background, 250ms ease-out margin;
   outline: none;
   border: none;
   background: none;
   cursor: pointer;
-  font-size: .8em;
+  font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -423,7 +470,7 @@ nav li button {
   padding: 8px 24px 2px;
   line-height: auto;
   box-shadow: none;
-  font-size: .75em;
+  font-size: 0.75em;
 }
 
 nav li.on button {
@@ -444,10 +491,12 @@ main {
   padding: 0px;
   margin: 0px 40px 0px 40px;
   border-top: 0px solid rgba(253, 251, 245, 0);
-  background: rgba(253, 251, 245, .9);
+  background: rgba(253, 251, 245, 0.9);
   overflow-y: scroll;
   border-radius: 0px 0px 0px 0px;
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
   touch-action: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -470,7 +519,9 @@ section {
   padding-top: 20px;
   padding-bottom: 20px;
   background: rgba(253, 251, 245, 0);
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
 }
 
 .show {
@@ -527,11 +578,12 @@ section aside h4 {
 
 section aside p {
   margin: 0px;
-  font-size: .7em;
+  font-size: 0.7em;
   margin-left: 40px;
 }
 
-.narrow section aside h4, .narrow section aside p {
+.narrow section aside h4,
+.narrow section aside p {
   margin-left: 20px;
   display: none;
 }
@@ -558,10 +610,12 @@ section aside img.wide {
 
 footer {
   padding: 14px 20px 14px 20px;
-  background: rgba(255, 250, 237, .2);
-  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height, 250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin, font-size 0ms;
+  background: rgba(255, 250, 237, 0.2);
+  transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
+    250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
+    font-size 0ms;
   border-radius: 0px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .narrow footer {
@@ -579,7 +633,7 @@ footer li {
 }
 
 footer a {
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, 0.6);
   display: block;
 }
 

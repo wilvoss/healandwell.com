@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Khula');
-@import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300');
-@import url('https://fonts.googleapis.com/css?family=Assistant:400,600');
+@import url("https://fonts.googleapis.com/css?family=Khula");
+@import url("https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300");
+@import url("https://fonts.googleapis.com/css?family=Assistant:400,600");
 
 :root {
   --orange: rgb(255, 168, 0);
@@ -49,7 +49,7 @@ body {
   padding: 0;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  transition: 500ms ease-out color, 500ms ease-out background,
+  transition: 500ms ease-out color, 500ms ease-out background-color,
     500ms ease-out opacity;
   transition-delay: 350ms;
   width: 100%;
@@ -81,7 +81,7 @@ body .bigger {
 }
 
 .serif body {
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
 }
 
 wrap {
@@ -106,7 +106,9 @@ wrap {
 
 .loaded.narrow wrap {
   height: 100%;
-  overflow: scroll;
+  margin: 0px;
+  max-width: initial;
+  overflow: hidden;
 }
 
 p,
@@ -237,11 +239,8 @@ ul {
   list-style-type: none;
 }
 
-ul.bulleted {
-}
-
 ul.bulleted li:before {
-  content: '- ';
+  content: "- ";
   opacity: 0.5;
 }
 
@@ -386,7 +385,7 @@ nav ul {
 }
 
 .narrowNavMenu {
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   cursor: pointer;
   font-size: 1.5em;
   opacity: 0;
@@ -558,7 +557,7 @@ nav li button,
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
   display: block;
-  font-family: 'Assistant', sans-serif;
+  font-family: "Assistant", sans-serif;
   font-size: 1em;
   margin: 0px;
   outline: none;
@@ -615,18 +614,45 @@ main {
   display: block;
   margin: 0px 20px;
   -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
+  /* overflow-x: visible;
+  overflow-y: auto; */
+  overflow: hidden;
   padding: 0px;
   touch-action: auto;
   transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
     250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
     font-size 0ms;
+  white-space: nowrap;
 }
 
 .narrow main {
   border-radius: 0px;
   margin: 0px 0px 0px;
-  padding: 20px 20px 40px;
+  overflow: visible;
+  padding: 0px 0px 40px;
+}
+
+pagewrap {
+  display: block;
+  transition: 300ms all ease-out;
+  transition-delay: 0ms;
+}
+
+page {
+  display: inline-block;
+  opacity: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  vertical-align: top;
+  width: inherit;
+  -ms-overflow-style: none;
+}
+page::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.narrow page {
+  padding: 20px;
 }
 
 .mainSection {
@@ -643,6 +669,7 @@ section {
   transition: 250ms ease-out color, 250ms ease-out width, 250ms ease-out height,
     250ms ease-out opacity, 250ms ease-out background, 250ms ease-out margin,
     font-size 0ms;
+  white-space: normal;
 }
 
 .show {
@@ -784,7 +811,7 @@ figcaption {
   text-align: left;
 }
 figcaption:before {
-  content: '© ';
+  content: "© ";
 }
 
 .narrow figcaption {
@@ -862,14 +889,14 @@ footer {
 }
 
 footer li {
-  color: rgba(177, 164, 153, 1);
+  color: rgb(201, 190, 181);
   display: inline-block;
   padding-right: 20px;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 1);
 }
 
 footer a {
-  color: rgba(177, 164, 153, 1);
+  color: rgb(201, 190, 181);
   cursor: pointer;
   display: block;
 }

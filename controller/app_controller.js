@@ -22,7 +22,7 @@ angular.module('appModule', []);
 
 angular
   .module('appModule')
-  .controller('appController', function($timeout, $scope) {
+  .controller('appController', function ($timeout, $scope) {
     app = this;
     scope = angular.element($(document.body)).scope();
 
@@ -31,9 +31,11 @@ angular
     app.IsNarrow = false;
     app.MenuOn = false;
     app.IsModernTheme = false;
+    app.SectionWidth = document.body.offsetWidth > 1048 ? 1048 : document.body.offsetWidth - 40;
+    app.SectionOffset = 0;
 
     //    document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
-    app.ToggleIsModernTheme = function() {
+    app.ToggleIsModernTheme = function () {
       app.IsModernTheme = !app.IsModernTheme;
       document.getElementById('mainCss').href = app.IsModernTheme
         ? 'css/main-modern.css'
@@ -41,8 +43,10 @@ angular
     };
 
     app.CurrentMainHeight = '0px';
+    app.CurrentPageHeight = 'auto';
     app.ContactGoogleMapCurrentHeight = '0px';
     app.PreviousNarrowMapHeight = '0px';
+
     /* ============= Theme management ============= */
     app.CurrentTheme;
     app.Themes = {
@@ -51,7 +55,7 @@ angular
       blueLight: new ThemeObject({ name: 'blue light', isDisabled: false }),
       orange: new ThemeObject({ name: 'orange', isDisabled: true }),
     };
-    app.SelectTheme = function(selected_theme) {
+    app.SelectTheme = function (selected_theme) {
       for (var theme in app.Themes) {
         app.Themes[theme].isSelected = false;
       }
@@ -74,7 +78,7 @@ angular
       big: new ThemeObject({ name: 'big', isSelected: false }),
       bigger: new ThemeObject({ name: 'bigger', isSelected: false }),
     };
-    app.SelectFontSize = function(selected_font) {
+    app.SelectFontSize = function (selected_font) {
       for (var font in app.FontSizes) {
         app.FontSizes[font].isSelected = false;
       }
@@ -87,7 +91,7 @@ angular
     app.ExpandAllResources = false;
     app.ResourceGroups = BaseResourceGroups;
 
-    app.ToggleAllResources = function() {
+    app.ToggleAllResources = function () {
       app.ExpandAllResources = !app.ExpandAllResources;
       for (i = 0; i < app.ResourceGroups.length; i++) {
         var group = app.ResourceGroups[i];
@@ -107,40 +111,51 @@ angular
       services: new NavigationLinkObject({
         id: 'services',
         name: 'Services',
-        position: 2,
+        position: 1,
         page: 'pages/services.html',
       }),
       about: new NavigationLinkObject({
         id: 'about',
         name: 'About',
-        position: 3,
+        position: 2,
         page: 'pages/about.html',
       }),
       connect: new NavigationLinkObject({
         id: 'connect',
         name: 'Connect',
-        position: 4,
+        position: 3,
         page: 'pages/connect.html',
         previousIds: ['contact'],
       }),
       newClient: new NavigationLinkObject({
         id: 'newClient',
         name: 'New clients',
-        position: 5,
+        position: 4,
         page: 'pages/newClient.html',
         previousId: ['intake'],
       }),
       resources: new NavigationLinkObject({
         id: 'resources',
         name: 'Resources',
-        position: 6,
+        position: 5,
         page: 'pages/resources.html',
       }),
     };
 
-    app.SelectLink = function(selected_link) {
+    app.SelectLink = function (selected_link) {
+      narrow =
+        document.body.offsetWidth - delta < listWidth ||
+        document.body.offsetHeight < 550;
       for (var link in app.NavigationLinks) {
-        app.NavigationLinks[link].isSelected = false;
+        var target = app.NavigationLinks[link];
+        target.isSelected = false;
+        if (selected_link == target) {
+          var narrowAccomodation = narrow ? 40 : 0;
+          console.log(app.SectionWidth);
+          app.SectionOffset =
+            (app.SectionWidth
+              + narrowAccomodation) * -target.position;
+        }
       }
       if (selected_link == app.NavigationLinks.connect) {
         log('select link called');
@@ -150,7 +165,7 @@ angular
       app.CurrentLink.isSelected = true;
     };
 
-    app.CheckHashAgainstPageIds = function(hash) {
+    app.CheckHashAgainstPageIds = function (hash) {
       for (link in app.NavigationLinks) {
         if (hash == app.NavigationLinks[link].id) {
           return hash;
@@ -163,7 +178,7 @@ angular
       return null;
     };
 
-    app.UpdateCheckURL = function(checkHash) {
+    app.UpdateCheckURL = function (checkHash) {
       checkHash = checkHash == undefined ? false : checkHash;
       if (getHashValue('/page') != null) {
         var pageId = app.CheckHashAgainstPageIds(getHashValue('/page'));
@@ -181,18 +196,18 @@ angular
       }
     };
 
-    app.PushHistory = function(linkId) {
+    app.PushHistory = function (linkId) {
       history.pushState(null, '', '#/page=' + linkId);
       app.UpdateCheckURL();
     };
   })
-  .filter('orderObjectBy', function() {
-    return function(items, field, reverse) {
+  .filter('orderObjectBy', function () {
+    return function (items, field, reverse) {
       var filtered = [];
-      angular.forEach(items, function(item) {
+      angular.forEach(items, function (item) {
         filtered.push(item);
       });
-      filtered.sort(function(a, b) {
+      filtered.sort(function (a, b) {
         return a[field] > b[field] ? 1 : -1;
       });
       if (reverse) filtered.reverse();
@@ -200,7 +215,7 @@ angular
     };
   });
 
-var NavigationLinkObject = function(spec) {
+var NavigationLinkObject = function (spec) {
   this.id = spec.id;
   this.name = spec.name == undefined ? '' : spec.name;
   this.position = spec.position;
@@ -210,14 +225,14 @@ var NavigationLinkObject = function(spec) {
   this.page = spec.page;
 };
 
-var ThemeObject = function(spec) {
+var ThemeObject = function (spec) {
   this.name = spec.name == undefined ? '' : spec.name;
   this.position = spec.position;
   this.isSelected = spec.isSelected == undefined ? false : spec.isSelected;
   this.isDisabled = spec.isDisabled == undefined ? false : spec.isDisabled;
 };
 
-var FontObject = function(spec) {
+var FontObject = function (spec) {
   this.name = spec.name == undefined ? '' : spec.name;
   this.position = spec.position;
   this.isSelected = spec.isSelected == undefined ? false : spec.isSelected;
@@ -234,27 +249,24 @@ function UpdateLayout() {
     header.offsetTop -
     header.offsetHeight -
     nav.offsetHeight -
-    footer.offsetHeight -
-    (app.IsNarrow ? 0 : 20);
+    footer.offsetHeight +
+    (app.IsNarrow ? -20 : -20);
+  app.SectionWidth = document.body.offsetWidth > 1048 ? 1048 : document.body.offsetWidth - 40;
   if (app.CurrentMainHeight != newHeight + 'px') {
-    // log(app.CurrentMainHeight + " != " + newHeight);
     if (app.IsNarrow) {
-      if (app.CurrentMainHeight != 'auto') {
-        app.CurrentMainHeight = 'auto';
-      }
+      app.CurrentMainHeight = newHeight + 'px';
       if (app.PreviousNarrowMapHeight != newHeight + 'px') {
         app.ContactGoogleMapCurrentHeight = parseInt(newHeight) + 'px';
         app.PreviousNarrowMapHeight = app.ContactGoogleMapCurrentHeight;
         if (app.NavigationLinks.connect.isSelected) {
-          //log("calculateCenter()");
-          //calculateCenter();
         }
       }
     } else {
       app.CurrentMainHeight = newHeight + 'px';
-      app.ContactGoogleMapCurrentHeight = parseInt(newHeight) - 80 + 'px';
     }
   }
+  app.CurrentPageHeight = app.CurrentMainHeight;
+
 
   if (narrow) {
     var scrollTop = document.getElementsByTagName('wrap')[0].scrollTop;
@@ -277,10 +289,8 @@ function GetNavElementsWidth() {
         list[i].getElementsByTagName('button')[0].offsetWidth + 2 - modifier;
     }
     listWidth = width;
-    delta = 80; // navigator.userAgent.indexOf("iPad") != -1 ? 120 : navList.offsetWidth - listWidth;;
-    // log("document.body.offsetWidth = " + document.body.offsetWidth);
-    // log("delta = " + delta);
-    // log("listWidth = " + listWidth);
+    delta = 80;
+
     app.UpdateCheckURL(true);
     scope.$apply();
     updateTime = window.setInterval(UpdateLayout, 16);
@@ -295,17 +305,17 @@ function GetNavElementsWidth() {
   }
 }
 
-$(window).on('hashchange', function() {
+$(window).on('hashchange', function () {
   app.UpdateCheckURL(true);
   scope.$apply();
 });
 
-window.onpopstate = function(event) {
+window.onpopstate = function (event) {
   if (event && event.state) {
     window.location = window.location;
   }
 };
 
-document.body.onload = window.setTimeout(function() {
+document.body.onload = window.setTimeout(function () {
   GetNavElementsWidth();
 }, 100);
