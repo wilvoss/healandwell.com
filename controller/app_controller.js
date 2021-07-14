@@ -5,11 +5,7 @@ var updateTime;
 var header = document.getElementsByTagName('header')[0];
 var nav = document.getElementsByTagName('nav')[0];
 var main = document.getElementsByTagName('main')[0];
-var mainBorderTop = parseInt(
-  $(main)
-    .css('border-top-width')
-    .replace('px', ''),
-);
+var mainBorderTop = parseInt($(main).css('border-top-width').replace('px', ''));
 var footer = document.getElementsByTagName('footer')[0];
 var navList = document.getElementById('navlist');
 var list = nav.getElementsByTagName('li');
@@ -37,9 +33,7 @@ angular
     //    document.getElementById("mainCss").href = app.IsModernTheme ? "css/main-modern.css" : "css/main.css";
     app.ToggleIsModernTheme = function () {
       app.IsModernTheme = !app.IsModernTheme;
-      document.getElementById('mainCss').href = app.IsModernTheme
-        ? 'css/main-modern.css'
-        : 'css/main.css';
+      document.getElementById('mainCss').href = app.IsModernTheme ? 'css/main-modern.css' : 'css/main.css';
     };
 
     app.CurrentMainHeight = '0px';
@@ -143,18 +137,14 @@ angular
     };
 
     app.SelectLink = function (selected_link) {
-      narrow =
-        document.body.offsetWidth - delta < listWidth ||
-        document.body.offsetHeight < 550;
+      narrow = document.body.offsetWidth - delta < listWidth || document.body.offsetHeight < 550;
       for (var link in app.NavigationLinks) {
         var target = app.NavigationLinks[link];
         target.isSelected = false;
         if (selected_link == target) {
           var narrowAccomodation = narrow ? 40 : 0;
           console.log(app.SectionWidth);
-          app.SectionOffset =
-            (app.SectionWidth
-              + narrowAccomodation) * -target.position;
+          app.SectionOffset = (app.SectionWidth + narrowAccomodation) * -target.position;
         }
       }
       if (selected_link == app.NavigationLinks.connect) {
@@ -240,17 +230,9 @@ var FontObject = function (spec) {
 };
 
 function UpdateLayout() {
-  narrow =
-    document.body.offsetWidth - delta < listWidth ||
-    document.body.offsetHeight < 550;
+  narrow = document.body.offsetWidth - delta < listWidth || document.body.offsetHeight < 550;
   app.IsNarrow = narrow;
-  var newHeight =
-    document.body.offsetHeight -
-    header.offsetTop -
-    header.offsetHeight -
-    nav.offsetHeight -
-    footer.offsetHeight +
-    (app.IsNarrow ? -20 : -20);
+  var newHeight = document.body.offsetHeight - header.offsetTop - header.offsetHeight - nav.offsetHeight - footer.offsetHeight + (app.IsNarrow ? -20 : -20);
   app.SectionWidth = document.body.offsetWidth > 1048 ? 1048 : document.body.offsetWidth - 40;
   if (app.CurrentMainHeight != newHeight + 'px') {
     if (app.IsNarrow) {
@@ -267,7 +249,6 @@ function UpdateLayout() {
   }
   app.CurrentPageHeight = app.CurrentMainHeight;
 
-
   if (narrow) {
     var scrollTop = document.getElementsByTagName('wrap')[0].scrollTop;
     app.HealingAndWellnessScrolledOutOfView = scrollTop > 30;
@@ -276,17 +257,12 @@ function UpdateLayout() {
 }
 
 function GetNavElementsWidth() {
-  mainBorderTop = parseInt(
-    $(main)
-      .css('border-top-width')
-      .replace('px', ''),
-  );
+  mainBorderTop = parseInt($(main).css('border-top-width').replace('px', ''));
   if (list.length > 0) {
     var width = 0;
     var modifier = navigator.userAgent.indexOf('iPad') != -1 ? 73 : 0;
     for (var i = list.length - 1; i >= 0; i--) {
-      width +=
-        list[i].getElementsByTagName('button')[0].offsetWidth + 2 - modifier;
+      width += list[i].getElementsByTagName('button')[0].offsetWidth + 2 - modifier;
     }
     listWidth = width;
     delta = 80;
@@ -294,11 +270,8 @@ function GetNavElementsWidth() {
     app.UpdateCheckURL(true);
     scope.$apply();
     updateTime = window.setInterval(UpdateLayout, 16);
-    if (
-      document.getElementsByTagName('html')[0].className.indexOf('loaded') == -1
-    ) {
-      document.getElementsByTagName('html')[0].className =
-        document.getElementsByTagName('html')[0].className + ' loaded';
+    if (document.getElementsByTagName('html')[0].className.indexOf('loaded') == -1) {
+      document.getElementsByTagName('html')[0].className = document.getElementsByTagName('html')[0].className + ' loaded';
     }
   } else {
     window.setTimeout(GetNavElementsWidth, 100);
