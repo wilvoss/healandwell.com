@@ -648,7 +648,7 @@ page {
   -ms-overflow-style: none;
 }
 page::-webkit-scrollbar {
-  width: 0 !important;
+  width: 0;
 }
 
 .narrow page {
