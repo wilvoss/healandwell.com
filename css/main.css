@@ -175,6 +175,7 @@ map {
   display: block;
   margin: 0px -40px;
 }
+
 .narrow map {
   background-position: -150px -4px;
   background-size: 235%;
@@ -192,6 +193,7 @@ section h2 span {
   padding: 0px 0em 0px 0px;
   transform: rotate(90deg) translateX(2px) translateY(2px);
 }
+
 section h2 span.revealed {
   color: black;
 }
@@ -426,9 +428,11 @@ nav ul {
   padding-top: 1px;
   transition: 250ms all ease-out;
 }
+
 .titleOn .narrowNavMenu {
   background-color: rgba(250, 248, 243, 0.9);
 }
+
 .titleOn .narrowNavMenu hwtitle,
 .narrow.menuOn .narrowNavMenu hwtitle {
   opacity: 1;
@@ -647,6 +651,7 @@ page {
   width: inherit;
   -ms-overflow-style: none;
 }
+
 page::-webkit-scrollbar {
   width: 0;
 }
@@ -805,11 +810,13 @@ section aside ul {
   font-size: 0.7em;
   margin: 0px;
 }
+
 figcaption {
   color: var(--coffee);
   margin-bottom: 20px;
   text-align: left;
 }
+
 figcaption:before {
   content: "© ";
 }
@@ -823,6 +830,7 @@ figcaption:before {
   display: none;
   margin-left: 20px;
 }
+
 section img {
   border-radius: 3px;
 }
@@ -843,9 +851,11 @@ section.column2 article {
   vertical-align: top;
   width: 46%;
 }
+
 section.column2 article:first-of-type {
   margin-right: 40px;
 }
+
 .narrow section.column2 article {
   float: none;
   margin-right: 0px;
@@ -914,3 +924,4 @@ footer a:hover {
 .narrow #lastClear {
   height: 0px;
 }
+
